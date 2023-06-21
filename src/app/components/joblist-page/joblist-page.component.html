@@ -1,0 +1,46 @@
+<div class="jobheader">
+  <img class="headerimg" src="assets/jobpage.jpg">
+  <h1>Get Your Job</h1>
+</div>
+
+
+<div class="example-card" *ngFor="let data of companyData">
+  <div class="example-image-container">
+    <img [src]="data.companyLogo" alt="Job Image">
+  </div>
+  <div class="example-details-container">
+    <div class="example-title-container">
+      <h2>{{data.companyName}}</h2>
+      <div class="post-info">
+        <p>{{data.postedDate | date:'MMM dd, yyyy'}}</p>
+      </div>
+    </div>
+
+
+    <div class="example-details">
+      <div class="example-detail-jobTitle">
+        <p>{{data.jobTitle}}</p>
+      </div>
+      <div class="example-detail">
+        <button class="btn btn-secondary"> {{data.Salary}}</button>
+      </div>
+      <div class="example-detail">
+        <p>{{data.Location}}</p>
+      </div>
+      <div class="example-detail">
+        <p>
+          <span class="jobType"
+            [ngClass]="{'yellow-icon': data.jobType != 'Part-Time', 'blue-icon': data.jobType === 'Full-Time'}">
+            <i class="fa fa-clock-o"></i>
+          </span>
+          {{data.jobType}}
+        </p>
+      </div>
+
+      <div class="example-apply-container">
+        <button [routerLink]="['/companiesList', data.id]">Apply Now</button>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<div class="jobheader" *ngIf="company">
+  <img class="headerimg" src="assets/companyProfile.jpg">
+  <h1>{{company.companyName}}</h1>
+</div>
+
+<mat-grid-list cols="2" rowHeight="1000px" *ngIf="company">
+  <mat-grid-tile>
+    <div>
+      <div class="company-info">
+        <img class="company-logo" [src]="company.companyLogo" alt="Company Logo">
+        <div>
+          <h1 class="company-jobTitle">{{company.jobTitle}}</h1>
+          <div class="location-info">
+            <i class="fa fa-map-marker" style="font-size: 20px; color: grey"></i>
+            <span> {{company.Location}}</span>
+            <span class="job-type"
+              [ngClass]="{'yellow-icon': company.jobType != 'Part-Time', 'blue-icon': company.jobType === 'Full-Time'}">
+              <i class="fa fa-clock-o"></i>
+              {{company.jobType}}
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="jobDesc">
+        <h2>Job Description</h2>
+        <p>We are looking for a Software Engineer to join our growing Engineering team and build out the next generation
+          of our platform. The ideal candidate is a hands-on platform builder with significant experience in developing
+          scalable data platforms. We're looking for someone with experience in business intelligence, analytics, data
+          science and data products.</p>
+      </div>
+      <div class="jobDesc">
+        <h2>Roles and Responsibilties</h2>
+        <li>Analyze, design and develop tests and test-automation suites.</li>
+        <li> Design and develop a processing platform using various configuration management technologies.</li>
+        <li>Test software development methodology in an agile environment.</li>
+        <li> Provide ongoing maintenance, support and enhancements in existing systems and platforms.</li>
+        <li> Collaborate cross-functionally with data scientists, business users, project managers and other engineers
+          to achieve elegant solutions.</li>
+        <li>Provide recommendations for continuous improvement.</li>
+      </div>
+      <div class="jobDesc">
+        <h2>Qualifications</h2>
+        <li>Bachelor's Degree in computer science or equivalent experience.</li>
+        <li>Excellent verbal and written communication skills.</li>
+        <li>Experience with Scrum/Agile development methodologies.</li>
+        <li>Experience with test-driven development and automated testing frameworks.</li>
+      </div>
+
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="button-container">
+      <div class="button-group">
+        <button class="btn btn-light">Visit Site <i class="fa fa-external-link" aria-hidden="true"></i></button>
+        <button class="btn btn-primary" (click)="applyNow()">Apply Now</button>
+      </div>
+      <div class="grey-box-container">
+        <div class="grey-box">
+          <h1>Job Summary</h1>
+          <h3><b>Published on:</b>{{company.postedDate | date:'MMM dd, yyyy'}}</h3>
+          <h3><b>Vacancy:</b> 20</h3>
+          <h3><b>Employment Status:</b> {{company.jobType}}</h3>
+          <h3><b>Experience:</b> 2 to 3 year(s)</h3>
+          <h3><b>Job Location:</b> {{company.Location}}</h3>
+          <h3><b>Salary:</b>{{company.Salary}}</h3>
+          <h3><b>Application Deadline:</b> April 28, 2013</h3>
+        </div>
+      </div>
+      <div class="grey-box-container1">
+        <div class="grey-box1">
+          <h1>Share</h1>
+          <i class="fa fa-twitter-square shareImg"></i>
+          <i class="fa fa-facebook-square shareImg"></i>
+          <i class="fa fa-linkedin-square shareImg"></i>
+
+        </div>
+      </div>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,160 @@
+body {
+    background-image: none;
+  }
+  
+  .headerimg {
+    max-width: 100%; 
+    height: 500px;
+  }
+  
+  .jobheader {
+    width: 100%;
+    height: 500px;
+    position: relative;
+  }
+  
+  .jobheader::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+    background-color: rgba(8, 8, 56, 0.75);
+  }
+  
+  .jobheader h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: white;
+    text-align: center;
+  }
+
+  .example-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(56, 55, 55, 0.25);
+    background-color: #fff;
+    transition: box-shadow 0.2s ease-in-out;
+  }
+  
+  .example-card:hover {
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+  }
+  
+  .example-image-container {
+    flex: 0 0 auto;
+    margin-right: 32px;
+  }
+  
+  .example-image-container img {
+    width: 90px;
+    height: auto;
+  }
+  
+  .example-details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+  
+  .example-title-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .example-title-container h2 {
+    margin-right: 16px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #074465;
+
+  }
+  
+  
+  .example-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  
+  .example-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .example-detail-jobTitle p {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #262222;
+  }
+  .jobType{
+    margin: 4px;
+    color: #ddd836;
+    font-size: 22px;
+  }
+  .yellow-icon {
+    color: yellow;
+  }
+  
+  .blue-icon {
+    color: blue;
+  }
+  
+  .example-apply-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .example-apply-container button {
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 999px;
+    background-color: #0077b6;
+    border: none;
+  }
+  
+  .example-apply-container button:hover {
+    background-color: #005f8d;
+  }
+  
+  .example-apply-container button:active {
+    background-color: #004766;
+  }
+  
+  .example-apply-container p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: gray;
+  }
+  .post-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 14px;
+    color: #999;
+    margin-top: 5px;
+  }
+  
+  .post-info p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  

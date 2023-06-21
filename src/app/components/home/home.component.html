@@ -1,0 +1,17 @@
+<div>
+<img src="assets/bg.jpg">
+<div class="text">
+  Your Dream
+</div>
+<div class="lowertext">
+  Job is Waiting
+</div>
+<div class="search-container">
+  <form (ngSubmit)="searchJobs()" #searchForm="ngForm">
+    <input type="text" placeholder="Company Name" name="companyName" [(ngModel)]="companyName" required>
+    <input type="text" placeholder="Designation" name="jobTitle" [(ngModel)]="jobTitle" required>
+    <button type="submit"><i class="fa fa-search" style="color: black;"></i></button>
+  </form>
+</div>
+</div>
+

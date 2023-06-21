@@ -1,0 +1,59 @@
+<mat-form-field appearance="fill">
+    <mat-label>Date-dd/mm/yyyy</mat-label>
+    <div class="datepicker">
+        <input matInput [ngModel]="temp | date: 'dd/MM/yyyy'"  (ngModelChange)="markSelectedDate($event)">
+        <button mat-icon-button (click)="toggleCalendar()">
+            <mat-icon>calendar_today</mat-icon>
+        </button>
+        <div class="calendar" *ngIf="showCalendar">
+            <div class="header" [class.hide-header]="showYearSelection">
+                <div class="month-year">
+                    <span (click)="toggleMonthSelection()">{{ getSelectedMonth() }}</span>
+                    <span (click)="toggleYearSelection()"> {{ selectedDate.getFullYear() }}</span>
+                </div>
+                <button mat-icon-button class="arrowPreviousMonth" (click)="previousMonth()">
+                    <mat-icon>keyboard_arrow_left</mat-icon>
+                </button>
+                <button mat-icon-button (click)="nextMonth()">
+                    <mat-icon>keyboard_arrow_right</mat-icon>
+                </button>
+            </div>
+            <div class="month-selection" *ngIf="showMonthSelection">
+                <div class="row">
+                    <div *ngFor="let month of months; let i = index" class="month" (click)="selectMonth(i)"
+                        [class.current-month]="i === selectedDate.getMonth()">
+                        {{ month }}
+                    </div>
+                </div>
+            </div>
+            <div class="year-selection" *ngIf="showYearSelection">
+                <div class="navigation">
+                    <div class="year-set-header">{{ displayedYears[0] }} - {{ displayedYears[displayedYears.length - 1] }}
+                    </div>
+                    <button mat-icon-button class="arrowYearSet" (click)="previousYearSet()">
+                        <mat-icon>keyboard_arrow_left</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="nextYearSet()">
+                        <mat-icon>keyboard_arrow_right</mat-icon>
+                    </button>
+                </div>
+                <div class="years">
+                    <div *ngFor="let year of displayedYears" class="year"
+                        [class.selected]="year === selectedDate.getFullYear()" (click)="selectYear(year)">
+                        {{ year }}
+                    </div>
+                </div>
+            </div>
+            <div class="weekdays" *ngIf="showCalendarDays">
+                <div *ngFor="let weekday of weekdays" class="weekday">{{ weekday }}</div>
+            </div>
+            <div class="days" *ngIf="showCalendarDays">
+                <div *ngFor="let day of calendarDays" class="day" [class.disabled]="day.disabled"
+                    [class.today]="day.isToday" [class.selected-day]="isDaySelected(day.date)"
+                    (click)="selectDate(day.date)">
+                    {{ day.date | date: 'd' }}
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-form-field>

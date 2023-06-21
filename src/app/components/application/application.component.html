@@ -1,0 +1,32 @@
+<h2>Apply for {{ companyData?.companyName }}</h2>
+
+<form [formGroup]="applicationForm" (ngSubmit)="submit()">
+  <div>
+    <label>Full Name</label>
+    <input type="text" formControlName="fullName">
+    <div *ngIf="applicationForm.get('fullName')?.invalid && applicationForm.get('fullName')?.touched">
+      <small>Full Name is required.</small>
+    </div>
+  </div>
+
+  <div>
+    <label>Email</label>
+    <input type="email">
+  </div>
+
+  <div>   
+     <label>Date</label>
+     <mat-form-field appearance="fill">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" [max]="maxDate" [min]="minDate" class="custom-datepicker">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    
+    
+  </div>
+
+  <!-- Add more form fields as needed -->
+
+  <button type="submit" [disabled]="applicationForm.invalid">Submit</button>
+</form>

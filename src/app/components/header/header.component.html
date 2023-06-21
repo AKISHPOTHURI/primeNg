@@ -1,0 +1,41 @@
+
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Career</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"  data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center ">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/joblistPage">Job Listings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact Us</a>
+        </li>
+      </ul>
+      
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 justify-content-center">
+        <li class="nav-item nav-button">
+          <button type="button" class="btn btn-outline-warning"*ngIf="!authService.isAuthenticated()" routerLink="/login">Login</button>
+        </li>
+        <li class="nav-item nav-button">
+          <button type="button" class="btn btn-outline-warning"*ngIf="authService.isAuthenticated()"(click)="logout()" routerLink="/">Logout</button>
+        </li>
+        <li class="nav-item nav-button">
+          <button type="button" class="btn btn-outline-warning" routerLink="/signup">Register</button>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>

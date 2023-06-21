@@ -1,0 +1,45 @@
+<div class="container" *ngIf ="!user" >
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Sign Up</h1>
+                    <h6>register Yourself!!</h6>
+                </div>
+                <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+                    <div class="mb-3">
+                        <label for="fullname" class="form-label">Full Name</label>
+                        <input formControlName="fullname" type="text" class="form-control" id="fullname" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="mobile" class="form-label">Mobile Number</label>
+                        <input type="number" formControlName="mobile" class="form-control" id="mobile">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" formControlName="email" class="form-control" id="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" formControlName="password" class="form-control" id="password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </form>
+                <a routerLink="/login">Already registered? Click to Login</a>
+                <asl-google-signin-button type='icon' size='medium'></asl-google-signin-button>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="user" class="card text-center">
+    <h6 class="card-header">Social Login Demo</h6>
+    <div class="card-block"></div>
+    <div class="card-block">
+      <h4 class="card-title">{{ user.name }}</h4>
+      <p class="card-text">{{ user.email }}</p>
+      <p class="card-text">Logged in with {{ user.provider }}</p>
+    </div>
+    <div class="card-block">
+      <button class="btn btn-danger" (click)="signOut()">Sign out</button>
+    </div>
+  </div>

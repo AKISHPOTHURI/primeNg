@@ -1,0 +1,169 @@
+.datepicker {
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.mat-form-field {
+  width: 100%;
+  display: flex;
+}
+
+.mat-form-field .mat-form-field-wrapper {
+  flex: 1;
+}
+
+.mat-form-field .mat-form-field-infix {
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  background-color: #eee8e8;
+}
+
+.header.hide-header {
+  display: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+.month-year {
+  padding: 10px;
+}
+
+.month-year span {
+  cursor: pointer;
+}
+
+.calendar {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  width: 300px;
+  height: 300px;
+  right: 10px;
+  left: 0;
+  top: 100%;
+
+  .month-selection {
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .month {
+      cursor: pointer;
+      width: 24%;
+      padding: 4px;
+      text-align: center;
+    }
+  }
+  
+  .current-month,.day.selected-day  {
+    background-color: #6e938f;
+    border: double #394e4b 4px;
+    background-clip: padding-box;
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 20px;
+  }
+
+  .weekdays {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-weight: bold;
+
+    .weekday {
+      width: calc(100% / 7);
+      text-align: center;
+    }
+  }
+
+  .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 4px;
+
+    .day {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 32px;
+      border-radius: 4px;
+
+      &.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      &.today {
+        background-color: #ffecb3;
+      }
+    }
+  }
+
+  .year-selection {
+    .navigation {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      background-color: #eee8e8;
+      height: 45px;
+    }
+
+    .years {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 8px;
+
+      .year {
+        cursor: pointer;
+        width: calc(100% / 4);
+        padding: 7px;
+        text-align: center;
+
+        &.selected {
+          background-color: #6e938f;
+          border: double #394e4b 4px;
+          color: white;
+          border-radius: 20px;
+          background-clip: padding-box;
+        }
+      }
+    }
+  }
+
+  .year-set-header {
+    padding: 15px;
+  }
+
+  .arrowYearSet {
+    margin-left: 90px
+  }
+
+  .arrowPreviousMonth {
+    margin-left: 120px;
+  }
+}

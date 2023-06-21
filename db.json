@@ -1,0 +1,126 @@
+{
+  "posts": [],
+  "signupUsers": [
+    {
+      "fullname": "Roshitha Sarabu",
+      "email": "rosh@gmail.com",
+      "password": "roshitha",
+      "mobile": 9998888989,
+      "id": 1
+    },
+    {
+      "fullname": "Roshitha",
+      "email": "roshitha@gmail.com",
+      "password": "roshitha",
+      "mobile": 9898999989,
+      "id": 2
+    }
+  ],
+  "companiesList": [
+    {
+      "id": 1,
+      "companyId": 101,
+      "companyLogo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxuubr8dWZzqXlI05IWZ5KApzlyRNTslvYo_MB_9MNJBFZr8DUw4d0Y9h0ndX5tG_LaeY&usqp=CAU",
+      "companyName": "WebFlow",
+      "jobTitle": "Software Engineer",
+      "jobType": "Part-Time",
+      "Salary": "$120,000 - $150,000",
+      "Location": "New York",
+      "postedDate": "2023-05-10T12:30:00Z"
+    },
+    {
+      "id": 2,
+      "companyId": 102,
+      "companyLogo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2008px-Google_%22G%22_Logo.svg.png",
+      "companyName": "Google",
+      "jobTitle": "Software Developer",
+      "jobType": "Full-Time",
+      "Salary": "$120,000 - $150,000",
+      "Location": "Australia",
+      "postedDate": "2023-05-12T09:45:00Z"
+    }
+  ],
+  "About": [
+    {
+      "EmployeeName": "Akish",
+      "Education": "B.Tech","Level":"L1"
+    },
+    {
+      "EmployeeName": "Akash",
+      "Education": "MAsters",
+      "Level":"L2"
+    },
+    {
+      "EmployeeName": "Dharan",
+      "Education": "Diploma",
+      "Level":"L2"
+
+    },
+    {
+      "EmployeeName": "uday",
+      "Education": "B.Tech"
+      ,
+      "Level":"L2"
+    },
+    {
+      "EmployeeName": "Roshitha",
+      "Education": "B.Tech"
+      ,
+      "Level":"L2"
+    },
+    {
+      "EmployeeName": "Anji",
+      "Education": "Diploma",
+      "Level":"L2"
+    },
+    {
+      "EmployeeName": "Zuber",
+      "Education": "M.Tech",
+      "Level":"L2"
+    },
+    {
+      "EmployeeName": "Praveen",
+      "Education": "PG",
+      "Level":"L2"
+    },
+    {
+      "EmployeeName": "Pavani",
+      "Education": "",
+      "Level":"L2"
+    },
+    {
+      "EmployeeName": "Akish",
+      "Education": "B.Tech",
+      "Level":"L2"
+    },
+    {
+      "EmployeeName": "Akish",
+      "Education": "B.Tech",
+      "Level":"L2"
+    }
+  ],
+  "Level": [
+    {
+      "L1": [
+        "DotNet",
+        "DevOps",
+        "Ruby"
+      ],
+      "L2": [
+        "Associate DotNet",
+        "Associate DevOps",
+        "Associate Ruby"
+      ],
+      "L3": [
+        "Senior DotNet",
+        "Senior DevOps",
+        "Senior Ruby"
+      ],
+      "L4": [
+        "Principle DotNet",
+        "Principle DevOps",
+        "Principle Ruby"
+      ]
+    }
+  ]
+}

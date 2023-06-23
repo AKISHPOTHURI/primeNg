@@ -1,55 +1,102 @@
-import { Component, OnInit } from '@angular/core';
-import { CompaniesListService } from '../services/companies-list.service';
-import { combineLatest, forkJoin } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { about, level } from './interface';
-import { MessageService, SelectItem } from 'primeng/api';
+import {Component, OnInit} from '@angular/core';
+import { ProductserviceService } from '../services/productservice.service';
+import { Product } from '../product';
+import { LazyLoadEvent } from 'primeng/api';
+import { SelectItem } from 'primeng/api';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-primeng-table',
   templateUrl: './primeng-table.component.html',
+  providers: [MessageService],
   styleUrls: ['./primeng-table.component.scss']
 })
-export class PrimengTableComponent implements OnInit {
+export class PrimengTableComponent implements OnInit { 
 
-  data!: about[]
-  statuses!:SelectItem[];
-  clonedProducts: { [s: string]: about } = {};
+    products2: Product[] = [];
 
-  constructor(private companyService: CompaniesListService, private http: HttpClient, private messageService: MessageService) { }
- 
-  ngOnInit(): void {
-    
-    // const levels = this.http.get("http://localhost:3000/About")
-    // const employees = this.http.get("http://localhost:3000/Level")
-    // forkJoin(levels, employees).subscribe(response => {
-    //   console.log(response);
-    // })
-    this.companyService.getEmployees().subscribe(response=>{
-      this.data=response
-    })
-    
-    this.statuses = [
-      { label: 'L1', value: 'L1' },
-      { label: 'L2', value: 'L2' },
-      { label: 'L3', value: 'L3' }
-  ];
-  }
-  onRowEditInit(details: about) {
-    this.clonedProducts[details.EmployeeName as string] = { ...details };
-}
+    statuses: SelectItem[] = [];
+    public productData:any;
+    public productMessage!:string;
 
-onRowEditSave(details: about) {
-    // if (product.price > 0) {
-    //     delete this.clonedProducts[product.id as string];
-    //     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Product is updated' });
-    // } else {
-    //     this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Invalid Price' });
-    // }
-}
 
-onRowEditCancel(product: about, index: number) {
-    // this.data[index] = this.clonedProducts[product.id as string];
-    // delete this.clonedProducts[product.id as string];
-}
+    clonedProducts: { [s: string]: Product; } = {};
+
+    constructor(private productService: ProductserviceService, private messageService: MessageService) { }
+
+    cities: SelectItem[] = [];
+    selectedState!: string;
+    // selectedCity!:string;
+     
+    stateNames = ['Alabama', 'Alaska', 'California'];
+
+    states = this.stateNames.map((val, i, stateNames) => {
+        return { label: val, value: val }
+
+    });  
+    cityNames = [
+      {state: 'Alabama', city: 'Birmingham'}, 
+      {state: 'Alabama', city: 'Huntsville'}, 
+      {state: 'Alabama', city: 'Montgomery'},
+      {state: 'Alaska', city: 'Anchorage'}, 
+      {state: 'Alaska', city: 'Juneau'},
+      {state: 'California', city: 'Fresno'},
+      {state: 'California', city: 'Perris'}
+    ];
+
+    ngOnInit() {
+        // this.productService.getProductsSmall().subscribe(data => this.products1 = data,
+        //     );
+        this.productService.getProductsSmall().subscribe(data => this.products2 = data);
+        // console.log(this.products2)
+        this.getCities(this.selectedState);
+        
+               
+    }
+
+    getCities(state:any) {
+        this.cities = this.cityNames
+                          .filter((el) => { return el.state === state })
+                          .map((el) => {return { label: el.city, value: el.city } });
+      } 
+
+    onRowEditInit(product: Product) {
+        this.clonedProducts[product.id] = {...product};
+        // this.getCities(this.selectedState);
+    }
+
+    onRowEditSave(product: Product) {
+        
+        if (product.price > 0){
+            // product.state = this.selectedState;
+            // product.city = this.selectedCity
+            product.id && this.productService.updateProducts(product.id,product).subscribe((data) => {
+                this.productData = data;
+                if (this.productData){
+                 this.productMessage="Product updated";
+                 console.log(this.productMessage);                
+                }
+                else {
+                    console.log("Not Updated");             
+                }
+               });
+               delete this.clonedProducts[product.id]
+        }
+        else {
+            console.log("Enter the price more than zero.");             
+        }
+        
+        // if (product.price > 0) {
+        //     delete this.clonedProducts[product.id];
+        // }  
+        // else {
+        //     console.log("Enter the price more than zero.");
+            
+        // }
+    }
+
+    onRowEditCancel(product: Product, index: number) {
+        this.products2[index] = this.clonedProducts[product.id];
+        delete this.products2[product.id];
+    }
 }

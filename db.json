@@ -43,60 +43,58 @@
   "About": [
     {
       "EmployeeName": "Akish",
-      "Education": "B.Tech","Level":"L1"
+      "Education": "B.Tech",
+      "Level": "L1"
     },
     {
       "EmployeeName": "Akash",
       "Education": "MAsters",
-      "Level":"L2"
+      "Level": "L2"
     },
     {
       "EmployeeName": "Dharan",
       "Education": "Diploma",
-      "Level":"L2"
-
+      "Level": "L2"
     },
     {
       "EmployeeName": "uday",
-      "Education": "B.Tech"
-      ,
-      "Level":"L2"
+      "Education": "B.Tech",
+      "Level": "L2"
     },
     {
       "EmployeeName": "Roshitha",
-      "Education": "B.Tech"
-      ,
-      "Level":"L2"
+      "Education": "B.Tech",
+      "Level": "L2"
     },
     {
       "EmployeeName": "Anji",
       "Education": "Diploma",
-      "Level":"L2"
+      "Level": "L2"
     },
     {
       "EmployeeName": "Zuber",
       "Education": "M.Tech",
-      "Level":"L2"
+      "Level": "L2"
     },
     {
       "EmployeeName": "Praveen",
       "Education": "PG",
-      "Level":"L2"
+      "Level": "L2"
     },
     {
       "EmployeeName": "Pavani",
       "Education": "",
-      "Level":"L2"
+      "Level": "L2"
     },
     {
       "EmployeeName": "Akish",
       "Education": "B.Tech",
-      "Level":"L2"
+      "Level": "L2"
     },
     {
       "EmployeeName": "Akish",
       "Education": "B.Tech",
-      "Level":"L2"
+      "Level": "L2"
     }
   ],
   "Level": [
@@ -121,6 +119,116 @@
         "Principle DevOps",
         "Principle Ruby"
       ]
+    }
+  ],
+  "data": [
+    {
+      "id": "1000",
+      "code": "f230fh0g3",
+      "name": "Bamboo Watch",
+      "price": 65,
+      "state": "Alabama",
+      "city": "Birmingham"
+    },
+    {
+      "id": "1001",
+      "code": "nvklal433",
+      "name": "Black Watch",
+      "price": 72,
+      "state": "Alabama",
+      "city": "Huntsville"
+    },
+    {
+      "id": "1002",
+      "code": "zz21cz3c1",
+      "name": "Blue Band",
+      "price": 79,
+      "state": "California",
+      "city": "Fresno"
+    },
+    {
+      "id": "1003",
+      "code": "244wgerg2",
+      "name": "Blue T-Shirt",
+      "price": 29,
+      "state": "California",
+      "city": "Fresno"
+    },
+    {
+      "id": "1004",
+      "code": "h456wer53",
+      "name": "Bracelet",
+      "price": 15,
+      "state": "Alaska",
+      "city": "Juneau"
+    },
+    {
+      "id": "1005",
+      "code": "av2231fwg",
+      "name": "Brown Purse",
+      "price": 120,
+      "state": "California",
+      "city": "Perris"
+    },
+    {
+      "id": "1006",
+      "code": "bib36pfvm",
+      "name": "Chakra Bracelet",
+      "price": 32,
+      "state": "Alaska",
+      "city": "Anchorage"
+    },
+    {
+      "id": "1007",
+      "code": "mbvjkgip5",
+      "name": "Galaxy Earrings",
+      "price": "100",
+      "state": "Alaska",
+      "city": "Anchorage"
+    },
+    {
+      "id": "1008",
+      "code": "vbb124btr",
+      "name": "Game Controller",
+      "price": 99,
+      "state": "Alaska",
+      "city": "Anchorage"
+    },
+    {
+      "id": "1009",
+      "code": "cm230f032",
+      "name": "Gaming Set",
+      "price": 299,
+      "state": "Alaska",
+      "city": "Anchorage"
+    }
+  ],
+  "states" :[
+    {
+      "id":1,
+      "state":"Alabama"
+    },
+    {
+      "id": 2,
+      "state": "Alaska"
+    },
+    {
+      "id": 3,
+      "state": "California"
+    }
+  ],
+  "cities" :[
+    {
+      "id": 1,
+      "Alabama": ["Birmingham","Huntsville","Montgomery"]
+    },
+    {
+      "id": 2,
+      "Alaska": ["Anchorage","Juneau"]
+    },
+    {
+      "id": 3,
+      "California": ["Fresno","Perris"]
     }
   ]
 }

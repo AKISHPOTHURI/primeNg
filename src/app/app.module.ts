@@ -7,6 +7,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import{MatIconModule}from'@angular/material/icon'
 import { TableModule } from 'primeng/table';
+import { TooltipModule } from "primeng/tooltip";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,7 +30,6 @@ import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatNativeDateModule, Ma
 import { ChunkPipe } from './pipes/chunk.pipe';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MatMomentDateModule, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DatePipe } from '@angular/common';
-import { PrimengTableComponent } from './primeng-table/primeng-table.component';
 import { ListboxModule } from 'primeng/listbox';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
@@ -39,6 +39,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import {MultiSelectModule} from 'primeng/multiselect'
 import {ContextMenuModule} from 'primeng/contextmenu';
+import { PrimengTableComponent } from './primeng-table/primeng-table.component';
+
 
 @NgModule({
   declarations: [
@@ -52,7 +54,7 @@ import {ContextMenuModule} from 'primeng/contextmenu';
     ApplicationComponent,
     DatepickerComponent,
     ChunkPipe,
-    PrimengTableComponent,
+    PrimengTableComponent
   ],
   imports: [
     DialogModule,
@@ -81,7 +83,8 @@ import {ContextMenuModule} from 'primeng/contextmenu';
     MatFormFieldModule,
     MatMomentDateModule,
     TableModule,
-    MultiSelectModule
+    MultiSelectModule,
+    TooltipModule
   ],
   providers: [
     DatePipe,

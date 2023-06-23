@@ -58,6 +58,14 @@ export class ProductserviceService {
         return this.http.put<Product>(`http://localhost:3000/data/${id}`,data)
     }
 
+    getstatesdup(){
+        return this.http.get<any>('http://localhost:3000/states')
+    }
+
+    getCitiesdup(id:number){
+        return this.http.get(`http://localhost:3000/cities/${id}`)
+    }
+
     // getProducts() {
     //     return this.http.get<any>('http://localhost:3000/data')
     //     .toPromise()

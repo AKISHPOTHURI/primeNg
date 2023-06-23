@@ -26,8 +26,9 @@ export class PrimengTableComponent implements OnInit {
 
     cities: SelectItem[] = [];
     selectedState!: string;
+    selectedProducts!:Product;
+    cols: any[] = [];
     // selectedCity!:string;
-     
     stateNames = ['Alabama', 'Alaska', 'California'];
 
     states = this.stateNames.map((val, i, stateNames) => {
@@ -47,9 +48,19 @@ export class PrimengTableComponent implements OnInit {
     ngOnInit() {
         // this.productService.getProductsSmall().subscribe(data => this.products1 = data,
         //     );
+        this.cols = [
+            { field: "Code", header: "Code" },
+            { field: "Name", header: "Name" },
+            { field: "Price", header: "Age" },
+            { field: "State", header: "State"},
+            { field: "City", header: "City"},
+          ];
         this.productService.getProductsSmall().subscribe(data => this.products2 = data);
         // console.log(this.products2)
         this.getCities(this.selectedState);
+        // this.getStates()
+        // this.onStateSelectionChange()
+        
         
                
     }
@@ -58,7 +69,17 @@ export class PrimengTableComponent implements OnInit {
         this.cities = this.cityNames
                           .filter((el) => { return el.state === state })
                           .map((el) => {return { label: el.city, value: el.city } });
-      } 
+    }
+    // getCities(state:any) {
+    //     this.cities = this.cityNames
+    //                       .filter((el) => { return el.state === state })
+    //                       .map((el) => {return { label: el.city, value: el.city } });
+    // }
+    
+
+
+        
+
 
     onRowEditInit(product: Product) {
         this.clonedProducts[product.id] = {...product};

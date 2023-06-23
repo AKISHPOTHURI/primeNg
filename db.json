@@ -126,9 +126,9 @@
       "id": "1000",
       "code": "f230fh0g3",
       "name": "Bamboo Watch",
-      "price": 65,
-      "state": "Alabama",
-      "city": "Birmingham"
+      "price": "64",
+      "state": "California",
+      "city": "Fresno"
     },
     {
       "id": "1001",
@@ -203,10 +203,10 @@
       "city": "Anchorage"
     }
   ],
-  "states" :[
+  "states": [
     {
-      "id":1,
-      "state":"Alabama"
+      "id": 1,
+      "state": "Alabama"
     },
     {
       "id": 2,
@@ -217,18 +217,28 @@
       "state": "California"
     }
   ],
-  "cities" :[
+  "cities": [
     {
       "id": 1,
-      "Alabama": ["Birmingham","Huntsville","Montgomery"]
+      "Alabama": [
+        "Birmingham",
+        "Huntsville",
+        "Montgomery"
+      ]
     },
     {
       "id": 2,
-      "Alaska": ["Anchorage","Juneau"]
+      "Alaska": [
+        "Anchorage",
+        "Juneau"
+      ]
     },
     {
       "id": 3,
-      "California": ["Fresno","Perris"]
+      "California": [
+        "Fresno",
+        "Perris"
+      ]
     }
   ]
 }

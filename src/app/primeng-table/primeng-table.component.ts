@@ -18,6 +18,7 @@ export class PrimengTableComponent implements OnInit {
     statuses: SelectItem[] = [];
     public productData:any;
     public productMessage!:string;
+    // loading: boolean = true;
 
 
     clonedProducts: { [s: string]: Product; } = {};
@@ -48,13 +49,13 @@ export class PrimengTableComponent implements OnInit {
     ngOnInit() {
         // this.productService.getProductsSmall().subscribe(data => this.products1 = data,
         //     );
-        this.cols = [
-            { field: "Code", header: "Code" },
-            { field: "Name", header: "Name" },
-            { field: "Price", header: "Age" },
-            { field: "State", header: "State"},
-            { field: "City", header: "City"},
-          ];
+        // this.cols = [
+        //     { field: "Code", header: "Code" },
+        //     { field: "Name", header: "Name" },
+        //     { field: "Price", header: "Age" },
+        //     { field: "State", header: "State"},
+        //     { field: "City", header: "City"},
+        //   ];
         this.productService.getProductsSmall().subscribe(data => this.products2 = data);
         // console.log(this.products2)
         this.getCities(this.selectedState);

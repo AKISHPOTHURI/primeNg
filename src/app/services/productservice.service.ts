@@ -55,16 +55,16 @@ export class ProductserviceService {
     }
 
     updateProducts(id:number,data:Product){
-        return this.http.put<Product>(`http://localhost:3000/data/${id}`,data)
+        return this.http.put<Product[]>(`http://localhost:3000/data/${id}`,data)
     }
 
-    getstatesdup(){
-        return this.http.get<any>('http://localhost:3000/states')
-    }
+    // getstatesdup(){
+    //     return this.http.get<any>('http://localhost:3000/states')
+    // }
 
-    getCitiesdup(id:number){
-        return this.http.get(`http://localhost:3000/cities/${id}`)
-    }
+    // getCitiesdup(id:number){
+    //     return this.http.get(`http://localhost:3000/cities/${id}`)
+    // }
 
     // getProducts() {
     //     return this.http.get<any>('http://localhost:3000/data')

@@ -175,8 +175,8 @@
       "code": "bib36pfvm",
       "name": "Chakra Bracelet",
       "price": 32,
-      "state": "Alaska",
-      "city": "Anchorage"
+      "state": "Alabama",
+      "city": "Birmingham"
     },
     {
       "id": "1007",
@@ -184,7 +184,7 @@
       "name": "Galaxy Earrings",
       "price": "100",
       "state": "Alaska",
-      "city": "Anchorage"
+      "city": "Juneau"
     },
     {
       "id": "1008",
@@ -199,8 +199,8 @@
       "code": "cm230f032",
       "name": "Gaming Set",
       "price": 299,
-      "state": "Alaska",
-      "city": "Anchorage"
+      "state": "California",
+      "city": "Fresno"
     }
   ],
   "states": [

@@ -1,94 +1,220 @@
 <div class="card">
-        <p-table #table [value]="products2" selectionMode="single" [scrollable]="true" styleClass="p-datatable-gridlines" [(selection)]="selectedProducts" dataKey="id" editMode="row">
-        <!-- [globalFilterFields]="['product.code', 'product.name', 'product.price', 'product.state','product.city']" -->
-            <!-- <p-column></p-column> -->
-            <ng-template pTemplate="header">
-                <tr class="w-full">
-                    <th>Code</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>State</th>
-                    <th>City</th>                    
-                    <th>Actions</th>
-                </tr>
-                <tr class="w-full">
-                    <th class="search">
-                        <input pInputText type="text" (input)="table.filter($any($event.target)?.value, 'code', 'contains')" [value]="$any(table).filters['code']?.value" placeholder="Search by code" class="w-full" class="search-s">
-                    </th>
-                    <th class="search">
-                        <input pInputText type="text" (input)="table.filter($any($event.target)?.value, 'name', 'contains')" [value]="$any(table).filters['name']?.value" placeholder="Search by name" class="w-full" class="search-s">
-                    </th>
-                    <th class="search">
-                        <input pInputText type="text" (input)="table.filter($any($event.target)?.value, 'price', 'contains')" [value]="$any(table.filters['price'])?.value" placeholder="Search by price" class="w-full" class="search-s">
-                    </th>
-                    <th class="search">
-                        <input pInputText type="text" (input)="table.filter($any($event.target)?.value, 'state', 'contains')" [value]="$any(table.filters['state'])?.value" placeholder="Search by state" class="w-full" class="search-s">
-                    </th>
-                    <th class="search">
-                        <input pInputText type="text" (input)="table.filter($any($event.target)?.value, 'city', 'contains')" [value]="$any(table.filters['city'])?.value" placeholder="Search by city" class="w-full" class="search-s">
-                    </th>
-                    <th style="width:8rem"></th>
-                </tr>
+  <p-table
+    #table
+    [value]="products2"
+    selectionMode="single"
+    [scrollable]="true"
+    styleClass="p-datatable-gridlines"
+    [(selection)]="selectedProducts"
+    dataKey="id"
+    editMode="row"
+  >
+    <!-- [globalFilterFields]="['product.code', 'product.name', 'product.price', 'product.state','product.city']" -->
+    <!-- <p-column></p-column> -->
+    <ng-template pTemplate="header">
+      <tr class="w-full">
+        <th>Code</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>State</th>
+        <th>City</th>
+        <th>Actions</th>
+      </tr>
+      <tr class="w-full">
+        <th class="search">
+          <input
+            pInputText
+            type="text"
+            (input)="
+              table.filter($any($event.target)?.value, 'code', 'contains')
+            "
+            [value]="$any(table).filters['code']?.value"
+            placeholder="Search by code"
+            class="w-full"
+            class="search-s"
+          />
+        </th>
+        <th class="search">
+          <input
+            pInputText
+            type="text"
+            (input)="
+              table.filter($any($event.target)?.value, 'name', 'contains')
+            "
+            [value]="$any(table).filters['name']?.value"
+            placeholder="Search by name"
+            class="w-full"
+            class="search-s"
+          />
+        </th>
+        <th class="search">
+          <input
+            pInputText
+            type="text"
+            (input)="
+              table.filter($any($event.target)?.value, 'price', 'contains')
+            "
+            [value]="$any(table.filters['price'])?.value"
+            placeholder="Search by price"
+            class="w-full"
+            class="search-s"
+          />
+        </th>
+        <th class="search">
+          <input
+            pInputText
+            type="text"
+            (input)="
+              table.filter($any($event.target)?.value, 'state', 'contains')
+            "
+            [value]="$any(table.filters['state'])?.value"
+            placeholder="Search by state"
+            class="w-full"
+            class="search-s"
+          />
+        </th>
+        <th class="search">
+          <input
+            pInputText
+            type="text"
+            (input)="
+              table.filter($any($event.target)?.value, 'city', 'contains')
+            "
+            [value]="$any(table.filters['city'])?.value"
+            placeholder="Search by city"
+            class="w-full"
+            class="search-s"
+          />
+        </th>
+        <th style="width: 8rem"></th>
+      </tr>
+    </ng-template>
+    <ng-template
+      pTemplate="body"
+      let-product
+      let-editing="editing"
+      let-ri="rowIndex"
+      let-columns
+    >
+      <tr [pEditableRow]="product">
+        <td pEditableColumn>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input
+                [disabled]="!editing"
+                pInputText
+                type="text"
+                [(ngModel)]="product.code"
+              />
             </ng-template>
-            <ng-template pTemplate="body" let-product let-editing="editing" let-ri="rowIndex" let-columns>                
-                <tr [pEditableRow]="product">
-                    <td pEditableColumn>
-                        <p-cellEditor>
-                            <ng-template pTemplate="input">
-                                <input [disabled]="!editing" pInputText type="text" [(ngModel)]="product.code">
-                            </ng-template>
-                            <ng-template pTemplate="output">
-                                {{product.code}}
-                            </ng-template>
-                        </p-cellEditor>
-                    </td>
-                    <td pEditableColumn>
-                        <p-cellEditor>
-                            <ng-template pTemplate="input">
-                                <input [disabled]="!editing" pInputText type="text" [(ngModel)]="product.name">
-                            </ng-template>
-                            <ng-template pTemplate="output">
-                                {{product.name}}
-                            </ng-template>
-                        </p-cellEditor>
-                    </td>
+            <ng-template pTemplate="output">
+              {{ product.code }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td pEditableColumn>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input
+                [disabled]="!editing"
+                pInputText
+                type="text"
+                [(ngModel)]="product.name"
+              />
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ product.name }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
 
-                    <td pEditableColumn>
-                        <p-cellEditor>
-                            <ng-template pTemplate="input">
-                                <input [disabled]="!editing" pInputText type="text" [(ngModel)]="product.price">
-                            </ng-template>
-                            <ng-template pTemplate="output" class="w-full">
-                                {{product.price | currency: 'USD'}}
-                            </ng-template>
-                        </p-cellEditor>
-                    </td>
-                    <td pEditableColumn>
-                        <p-cellEditor>
-                            <ng-template pTemplate="input">
-                                <p-dropdown [disabled]="!editing" [options]="states" appendTo="body" [(ngModel)]="product.state" [style]="{'width':'150px'}" (onChange)="getCities($event.value)"></p-dropdown>
-                            </ng-template>
-                            <ng-template pTemplate="output">
-                                {{product.state}}
-                            </ng-template>
-                        </p-cellEditor>
-                    </td>
-                    <td pEditableColumn>
-                        <p-cellEditor>
-                            <ng-template pTemplate="input">
-                                <p-dropdown [disabled]="!editing" [options]="cities" appendTo="body" [(ngModel)]="product.city" [style]="{'width':'150px'}"></p-dropdown>
-                            </ng-template>
-                            <ng-template pTemplate="output">
-                                {{product.city}}
-                            </ng-template>
-                        </p-cellEditor>
-                    </td>
-                    <td style="text-align:center">
-                        <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow tooltipPosition="top" icon="pi pi-pencil" pTooltip="Edit"  (click)="onRowEditInit(product)" class="p-button-rounded p-button-text"></button>
-                        <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow tooltipPosition="top" icon="pi pi-check" pTooltip="accept change" (click)="onRowEditSave(product)" class="p-button-rounded p-button-text p-button-success p-mr-2"></button>
-                        <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow tooltipPosition="bottom" icon="pi pi-times" pTooltip="reject change" (click)="onRowEditCancel(product, ri)" class="p-button-rounded p-button-text p-button-danger"></button>
-                    </td>
-                </tr>
+        <td pEditableColumn>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <input
+                [disabled]="!editing"
+                pInputText
+                type="text"
+                [(ngModel)]="product.price"
+              />
             </ng-template>
-        </p-table>
-    </div>
+            <ng-template pTemplate="output" class="w-full">
+              {{ product.price | currency : "USD" }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td pEditableColumn>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <p-dropdown
+                [disabled]="!editing"
+                [options]="states"
+                appendTo="body"
+                [(ngModel)]="product.state"
+                [style]="{ width: '150px' }"
+                (onChange)="getCities($event.value)"
+              ></p-dropdown>
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ product.state }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td pEditableColumn>
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <p-dropdown
+                [disabled]="!editing"
+                [options]="cities"
+                appendTo="body"
+                [(ngModel)]="product.city"
+                [style]="{ width: '150px' }"
+              ></p-dropdown>
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{ product.city }}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td style="text-align: center">
+          <button
+            *ngIf="!editing"
+            pButton
+            pRipple
+            type="button"
+            pInitEditableRow
+            tooltipPosition="top"
+            icon="pi pi-pencil"
+            pTooltip="Edit"
+            (click)="onRowEditInit(product)"
+            class="p-button-rounded p-button-text"
+          ></button>
+          <button
+            *ngIf="editing"
+            pButton
+            pRipple
+            type="button"
+            pSaveEditableRow
+            tooltipPosition="top"
+            icon="pi pi-check"
+            pTooltip="accept change"
+            (click)="onRowEditSave(product)"
+            class="p-button-rounded p-button-text p-button-success p-mr-2"
+          ></button>
+          <button
+            *ngIf="editing"
+            pButton
+            pRipple
+            type="button"
+            pCancelEditableRow
+            tooltipPosition="bottom"
+            icon="pi pi-times"
+            pTooltip="reject change"
+            (click)="onRowEditCancel(product, ri)"
+            class="p-button-rounded p-button-text p-button-danger"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

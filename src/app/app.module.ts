@@ -8,6 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import{MatIconModule}from'@angular/material/icon'
 import { TableModule } from 'primeng/table';
 import { TooltipModule } from "primeng/tooltip";
+import { CommonModule } from '@angular/common';
+// import { DataTableModule } from 'primeng/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -84,7 +86,8 @@ import { PrimengTableComponent } from './primeng-table/primeng-table.component';
     MatMomentDateModule,
     TableModule,
     MultiSelectModule,
-    TooltipModule
+    TooltipModule,
+    CommonModule
   ],
   providers: [
     DatePipe,

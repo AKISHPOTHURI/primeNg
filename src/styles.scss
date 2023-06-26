@@ -3,3 +3,22 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.p-datatable.p-datatable-gridlines .p-datatable-thead > tr > th {
+    border-width: 1px 1px 1px 1px;
+    width: 150px !important;
+}
+
+.p-datatable.p-datatable-gridlines .p-datatable-thead > tr > th > input {
+    border-width: 1px 1px 1px 1px;
+    padding: 10px 10px 10px 10px !important;
+    width: 135px !important;
+}
+
+.p-datatable.p-datatable-gridlines .p-datatable-tbody > tr > td {
+    border-width: 1px;
+    width: 150px !important;
+}
+.p-inputtext {
+    width: 150px;
+}

@@ -106,14 +106,6 @@ export class PrimengTableComponent implements OnInit {
         else {
             console.log("Enter the price more than zero.");             
         }
-        
-        // if (product.price > 0) {
-        //     delete this.clonedProducts[product.id];
-        // }  
-        // else {
-        //     console.log("Enter the price more than zero.");
-            
-        // }
     }
 
     onRowEditCancel(product: Product, index: number) {

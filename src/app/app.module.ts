@@ -42,6 +42,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import {MultiSelectModule} from 'primeng/multiselect'
 import {ContextMenuModule} from 'primeng/contextmenu';
 import { PrimengTableComponent } from './primeng-table/primeng-table.component';
+import { DorpdownComponent } from './dorpdown/dorpdown.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { PrimengTableComponent } from './primeng-table/primeng-table.component';
     ApplicationComponent,
     DatepickerComponent,
     ChunkPipe,
-    PrimengTableComponent
+    PrimengTableComponent,
+    DorpdownComponent
   ],
   imports: [
     DialogModule,

@@ -1,0 +1,21 @@
+<!-- <p>dropdown-1</p>
+<p-dropdown [options]="cities1" [(ngModel)]="selectedCity1" (onChange)="getvar()"></p-dropdown>
+{{selectedCity1}}
+<p-dropdown [options]="cities2" [(ngModel)]="selectedCity2" optionLabel="name" (onChange)="getvar()"></p-dropdown>
+{{selectedCity2.name}} -->
+
+<p>filter</p>
+<p-dropdown [options]="cities1" [(ngModel)]="selectedCity1" [filter]="true" (onChange)="getvar($event.target?.value)"></p-dropdown>        
+{{selectedCity1}}
+<p-dropdown [options]="cities1" [(ngModel)]="selectedCity2" [filter]="true" filterBy="label,value.name" (onChange)="getvar($event.target?.value)"></p-dropdown>
+{{selectedCity2}}
+<h4>Grouping</h4>
+<p-dropdown [options]="groupedCars" [(ngModel)]="selectedCar" placeholder="Select a Car" [group]="true"></p-dropdown>
+<h5>Virtual Scoring</h5>
+<p-dropdown [options]="cities1" [virtualScroll]="true" [itemSize]="5" [filter]="true"></p-dropdown>
+<h4>reset filter</h4>
+<h1>it saves filter state, updates model and refilter the table</h1>
+<p-dropdown #dd [options]="cities1" [(ngModel)]="selectedCar" [filter]="true"></p-dropdown>
+<button type="button" pButton label="submit" (click)="clearFilter(dd)"></button>
+<h4>Animation Configuration</h4>
+<p-dropdown [options]="cities1" [(ngModel)]="selectedCar" [showTransitionOptions]="'3000ms'" [hideTransitionOptions]="'2000ms'"></p-dropdown>

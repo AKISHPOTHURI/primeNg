@@ -8,7 +8,7 @@ import { CompanyProfileComponent } from './components/company-profile/company-pr
 import { ApplicationComponent } from './components/application/application.component';
 import { DatepickerComponent } from './components/datepicker/datepicker.component';
 import { PrimengTableComponent } from './primeng-table/primeng-table.component';
-
+import { DorpdownComponent } from './dorpdown/dorpdown.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'companiesList/:id', component: CompanyProfileComponent },
   { path: 'application', component: ApplicationComponent },
   { path: 'datepicker', component: DatepickerComponent },
-  {path:'primeNg',component:PrimengTableComponent}
+  {path:'primeNg',component:PrimengTableComponent},
+  {path:'dropdown',component:DorpdownComponent}
 
  
 ];

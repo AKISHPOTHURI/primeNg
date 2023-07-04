@@ -9,6 +9,9 @@ import{MatIconModule}from'@angular/material/icon'
 import { TableModule } from 'primeng/table';
 import { TooltipModule } from "primeng/tooltip";
 import { CommonModule } from '@angular/common';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+import {ToastModule} from 'primeng/toast';
 // import { DataTableModule } from 'primeng/table';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -43,6 +46,8 @@ import {MultiSelectModule} from 'primeng/multiselect'
 import {ContextMenuModule} from 'primeng/contextmenu';
 import { PrimengTableComponent } from './primeng-table/primeng-table.component';
 import { DorpdownComponent } from './dorpdown/dorpdown.component';
+import { TableComponent } from './table/table.component';
+import { DropComponent } from './drop/drop.component';
 
 
 @NgModule({
@@ -58,7 +63,9 @@ import { DorpdownComponent } from './dorpdown/dorpdown.component';
     DatepickerComponent,
     ChunkPipe,
     PrimengTableComponent,
-    DorpdownComponent
+    DorpdownComponent,
+    TableComponent,
+    DropComponent
   ],
   imports: [
     DialogModule,
@@ -89,7 +96,11 @@ import { DorpdownComponent } from './dorpdown/dorpdown.component';
     TableModule,
     MultiSelectModule,
     TooltipModule,
-    CommonModule
+    CommonModule,
+    MessageModule,
+    MessagesModule,
+    ToastModule
+
   ],
   providers: [
     DatePipe,

@@ -1,0 +1,255 @@
+<p-toast position="top-right"></p-toast>
+<p-contextMenu #cm [model]="items"></p-contextMenu>
+<p-table [columns]="cols" [value]="infos" dataKey="id" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" 
+currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[5,10,15]" [(selection)]="selectedProducts3" 
+[(contextMenuSelection)]="selectedProduct" [contextMenu]="cm" styleClass="p-datatable-gridlines" [resizableColumns]="true"
+columnResizeMode="expand">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th style="width: 3rem" pResizableColumn>
+                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </th>
+            <th pResizableColumn>expansion</th>
+            <th pResizableColumn *ngFor="let col of columns" [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-info let-expanded="expanded" let-columns="columns">
+        <tr [pContextMenuRow]="info">
+            <td>
+                <p-tableCheckbox [value]="info" (click)="selecteddProduct(info)"></p-tableCheckbox>
+            </td>
+            <td>
+                <a href="#" [pRowToggler]="info">
+                    <i [ngClass]="expanded
+                ? 'pi pi-fw pi-chevron-circle-down'
+                : 'pi pi-fw pi-chevron-circle-right'"></i>
+                </a>
+            </td>
+
+            <td *ngFor="let col of columns">
+                    {{info[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="rowexpansion" let-info let-columns="columns">
+    <tr>
+        <td colspan="columns.length + 1">
+            <div class="grid p-fluid" style="font-size:16px; padding:20px">
+                <div class="col-12 md-9">
+                    <div class="grid">
+                        <div class="col-12">
+                                <b>Id:</b> 
+                                    {{ info.id }}
+                        </div>
+                        <div class="col-12">
+                                <b>code:</b> 
+                                    {{ info.code }}
+                        </div>
+                        <div class="col-12">
+                                <b>name:</b> 
+                                    {{ info.name }}
+                        </div>
+                        <div class="col-12">
+                            <b>price:</b> 
+                                {{ info.price }}
+                        </div>
+                        <div class="col-12">
+                            <b>state:</b> 
+                                {{ info.state }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+</ng-template>
+<!-- <ng-template pTemplate="paginatorleft">
+    <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+</ng-template>
+<ng-template pTemplate="paginatorright">
+    <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+</ng-template> -->
+</p-table>
+<h3>Column Grouping</h3>
+<p-table [value]="sales" [scrollable]="true" scrollHeight="500px">
+    <ng-template pTemplate="header">
+        <tr>
+            <th rowspan="3">Brand</th>
+            <th colspan="4">Sale Rate</th>
+        </tr>
+        <tr>
+            <th colspan="2">Sales</th>
+            <th colspan="2">Profits</th>
+        </tr>
+        <tr>
+            <th>Last Year</th>
+            <th>This Year</th>
+            <th>Last Year</th>
+            <th>This Year</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-sale>
+        <tr>
+            <td>{{sale.brand}}</td>
+            <td>{{sale.lastYearSale}}</td>
+            <td>{{sale.thisYearSale}}</td>
+            <td>{{sale.lastYearProfit}}</td>
+            <td>{{sale.thisYearProfit}}</td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <tr>
+            <td colspan="3">Totals</td>
+            <td>$506,202</td>
+            <td>$531,020</td>
+        </tr>
+    </ng-template>
+</p-table>
+<h3>Row Grouping</h3>
+<p-table [value]="infos" sortField="state" sortMode="single" (onSort)="onSort()">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>id</th>
+            <th>code</th>
+            <th>name</th>
+            <th>price</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
+        <tr class="ui-widget-header" *ngIf="rowGroupMetadata[rowData.state].index === rowIndex">
+            <td colspan="4">
+                <span style="font-weight:bold">{{rowData.state}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>{{rowData.id}}</td>
+            <td>{{rowData.code}}</td>
+            <td>{{rowData.name}}</td>
+            <td>{{rowData.price}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+<h3>Alternate method Row Grouping</h3>
+<p-table [value]="infos" sortField="state" sortMode="single" (onSort)="onSort()">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>state</th>
+            <th>id</th>
+            <th>code</th>
+            <th>name</th>
+            <th>price</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-Index="rowIndex">
+        <tr>
+            <td *ngIf="rowGroupMetadata[rowData.state].index === Index" [attr.rowspan]="rowGroupMetadata[rowData.state].size">
+                {{rowData.state}}
+            </td>
+            <td>{{rowData.id}}</td>
+            <td>{{rowData.code}}</td>
+            <td>{{rowData.name}}</td>
+            <td>{{rowData.price}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+<h3>Table Reorder</h3>
+<p-table [value]="infos" [columns]="cols">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th style="width:3rem"></th>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
+        <tr [pReorderableRow]="index">
+            <td>
+                <span class="pi pi-bars" pReorderableRowHandle:any></span>
+            </td>
+            <td *ngFor="let col of columns">
+                {{rowData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+<h3>Data Export</h3>
+<p-table #dt [columns]="cols" [value]="infos" selectionMode="multiple" [(selection)]="selectedProducts3">
+    <ng-template pTemplate="caption">
+        <div class="ui-helper-clearfix" style="text-align: left">
+            <button type="button" pButton icon="pi pi-file-o" iconPos="left" label="CSV" (click)="dt.exportCSV()" style="margin-right: 0.5em;" pTooltip="CSV" tooltipPosition="bottom"></button>
+            <!-- <button type="button" pButton icon="pi pi-file-excel" iconPos="left" label="EXCEL" (click)="exportExcel()" style="margin-right: 0.5em;" class="ui-button-success"></button> -->
+            <!-- <button type="button" pButton icon="pi pi-file-pdf" iconPos="left" label="PDF" (click)="exportPdf()" class="ui-button-warning"></button> -->
+            <!-- <button type="button" pButton icon="pi pi-file" iconPos="left" label="CSV - Selection Only" (click)="dt.exportCSV({selectionOnly:true})" style="float:right"></button> -->
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+            <td *ngFor="let col of columns">
+                {{rowData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+<h2>Flexable</h2>
+<!-- <div class="card" class="container">
+    <h5>Vertical with Fixed Viewport</h5>
+    <p-table [value]="infos" [scrollable]="true" scrollHeight="200px">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>id</th>
+                <th>code</th>
+                <th>name</th>
+                <th>price</th>
+                <th>state</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-info>
+            <tr>
+                <td>{{info.id}}</td>
+                <td>{{info.code}}</td>
+                <td>{{info.name}}</td>
+                <td>{{info.price}}</td>
+                <td>{{info.state}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div> -->
+
+<div class="card">
+    <h5>Flexible Viewport</h5>
+    <button type="button" (click)="showDialog()" pButton icon="pi pi-external-link" label="View" [style]="{width: '100px'}"></button>
+    <p-dialog header="Flexible ScrollHeight" [(visible)]="dialogVisible" [style]="{width: '50vw'}" [baseZIndex]="10000" [maximizable]="true" [modal]="true" [resizable]="true" [contentStyle]="{height: '300px'}">
+        <p-table [value]="infos" [scrollable]="true" scrollHeight="flex" [columns]="cols">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns">
+                        {{col.header}}
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-info let-columns="columns">
+                <tr>
+                    <td *ngFor="let col of columns">
+                        {{info[col.field]}}
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+        <ng-template pTemplate="footer">
+            <button type="button" pButton pRipple icon="pi pi-times" (click)="dialogVisible=false" label="Dismiss" class="p-button-text"></button>
+        </ng-template>        
+    </p-dialog>
+    <!-- <h5>Full Page Scroll</h5> -->
+    <!-- <p>FlexScroll can also be used for cases where scrollable viewport should be responsive with respect to the window size. See the <a [routerLink]="['/table/flexscroll']">Full Page</a> demo for an example.</p> -->
+</div>

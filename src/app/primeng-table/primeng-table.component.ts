@@ -1,9 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import { ProductserviceService } from '../services/productservice.service';
 import { Product } from '../product';
-import { LazyLoadEvent } from 'primeng/api';
+import { LazyLoadEvent, SelectItemGroup } from 'primeng/api';
 import { SelectItem } from 'primeng/api';
 import {MessageService} from 'primeng/api';
+import { FormControl, FormGroup } from '@angular/forms';
+
+interface City{
+    name: string;
+    code: string;
+}
 
 @Component({
   selector: 'app-primeng-table',
@@ -12,6 +18,14 @@ import {MessageService} from 'primeng/api';
   styleUrls: ['./primeng-table.component.scss']
 })
 export class PrimengTableComponent implements OnInit { 
+
+    cities1: SelectItem[];
+
+    cities2: City[];
+
+    selectedCity1!: City;
+
+    selectedCity2!: SelectItem;
 
     products2: Product[] = [];
 
@@ -22,8 +36,58 @@ export class PrimengTableComponent implements OnInit {
 
 
     clonedProducts: { [s: string]: Product; } = {};
+    groupedCars: SelectItemGroup[];
 
-    constructor(private productService: ProductserviceService, private messageService: MessageService) { }
+    selectedCar!: string;
+
+    constructor(private productService: ProductserviceService, private messageService: MessageService) {
+                //SelectItem API with label-value pairs
+                this.cities1 = [
+                    {label:'Select City', value:null},
+                    {label:'New York', value:{id:1, name: 'New York', code: 'NY'}, styleClass:"test"},
+                    {label:'Rome', value:{id:2, name: 'Rome', code: 'RM'}},
+                    {label:'London', value:{id:3, name: 'London', code: 'LDN'}},
+                    {label:'Istanbul', value:{id:4, name: 'Istanbul', code: 'IST'}},
+                    {label:'Paris', value:{id:5, name: 'Paris', code: 'PRS'}}
+                ];
+        
+                //An array of cities
+                this.cities2 = [
+                    {name: 'New York', code: 'NY'},
+                    {name: 'Rome', code: 'RM'},
+                    {name: 'London', code: 'LDN'},
+                    {name: 'Istanbul', code: 'IST'},
+                    {name: 'Paris', code: 'PRS'}
+                ];
+
+                this.groupedCars = [
+                    {
+                        label: 'Germany',
+                        items: [
+                            {label: 'Audi', value: 'Audi'},
+                            {label: 'BMW', value: 'BMW'},
+                            {label: 'Mercedes', value: 'Mercedes'}
+                        ]
+                    },
+                    {
+                        label: 'USA',
+                        items: [
+                            {label: 'Cadillac', value: 'Cadillac'},
+                            {label: 'Ford', value: 'Ford'},
+                            {label: 'GMC', value: 'GMC'}
+                        ]
+                    },
+                    {
+                        label: 'Japan',
+                        items: [
+                            {label: 'Honda', value: 'Honda'},
+                            {label: 'Mazda', value: 'Mazda'},
+                            {label: 'Toyota', value: 'Toyota'}
+                        ]
+                    }
+                ];
+        
+     }
 
     cities: SelectItem[] = [];
     selectedState!: string;
@@ -47,6 +111,8 @@ export class PrimengTableComponent implements OnInit {
     ];
 
     ngOnInit() {
+        
+        
         // this.productService.getProductsSmall().subscribe(data => this.products1 = data,
         //     );
         // this.cols = [
@@ -57,6 +123,8 @@ export class PrimengTableComponent implements OnInit {
         //     { field: "City", header: "City"},
         //   ];
         this.productService.getProductsSmall().subscribe(data => this.products2 = data);
+        console.log(this.productService.getProduct());       
+        this.productService.getProduct();
         // console.log(this.products2)
         this.getCities(this.selectedState);
         // this.getStates()
@@ -112,5 +180,18 @@ export class PrimengTableComponent implements OnInit {
     onRowEditCancel(product: Product, index: number) {
         this.products2[index] = this.clonedProducts[product.id];
         delete this.products2[product.id];
+    }
+
+    //Reactive Forms
+    form = new FormGroup({
+        city: new FormControl()
+    });
+  
+    get city(): any {
+      return this.form.get('city');
+    }
+    
+    onSubmit(): void {
+      console.log(this.form.value); 
     }
 }

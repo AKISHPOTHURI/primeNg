@@ -9,17 +9,21 @@ import { ApplicationComponent } from './components/application/application.compo
 import { DatepickerComponent } from './components/datepicker/datepicker.component';
 import { PrimengTableComponent } from './primeng-table/primeng-table.component';
 import { DorpdownComponent } from './dorpdown/dorpdown.component';
+import { TableComponent } from './table/table.component';
+import { DropComponent } from './drop/drop.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SigupComponent },
-  { path: 'joblistPage', component: JoblistPageComponent },
-  { path: 'application/:id', component: ApplicationComponent },
-  { path: 'companiesList/:id', component: CompanyProfileComponent },
-  { path: 'application', component: ApplicationComponent },
-  { path: 'datepicker', component: DatepickerComponent },
+  // { path: 'login', component: LoginComponent },
+  // { path: 'signup', component: SigupComponent },
+  // { path: 'joblistPage', component: JoblistPageComponent },
+  // { path: 'application/:id', component: ApplicationComponent },
+  // { path: 'companiesList/:id', component: CompanyProfileComponent },
+  // { path: 'application', component: ApplicationComponent },
+  // { path: 'datepicker', component: DatepickerComponent },
   {path:'primeNg',component:PrimengTableComponent},
-  {path:'dropdown',component:DorpdownComponent}
+  {path:'dropdown',component:DorpdownComponent},
+  {path:'table',component:TableComponent},
+  {path:'drop',component:DropComponent}
 
  
 ];

@@ -24,8 +24,11 @@ export class DorpdownComponent implements OnInit {
   selectedCity2!: City;
 
   selectedCar!: string;
+  selectedCar1!:string;
 
   groupedCars!: SelectItemGroup[];
+
+  a!:string;
 
 
   constructor() { 
@@ -56,7 +59,7 @@ export class DorpdownComponent implements OnInit {
   
               //SelectItem API with label-value pairs
               this.cities1 = [
-                {label:'Select City', value:null},
+                {label:'Select City', value:null,styleClass: "{colour: black}"},
                 {label:'New York', value:{id:1, name: 'New York', code: 'NY'}},
                 {label:'ireland', value:{id:2, name: 'Rome', code: 'RM'}},
                 {label:'London', value:{id:3, name: 'London', code: 'LDN'}},
@@ -111,10 +114,9 @@ export class DorpdownComponent implements OnInit {
             // this.getvar()
   }
 
-  getvar(id:any){
+  getvar(){
     console.log("selectedCity1",this.selectedCity1?.name);
     console.log("selectedCity2",this.selectedCity2?.name);
-    console.log(id);
     
 
     
@@ -122,9 +124,9 @@ export class DorpdownComponent implements OnInit {
 
   clearFilter(dropdown: Dropdown) {
     console.log(dropdown);
-    
-    console.log(dropdown.resetFilter());
     dropdown.resetFilter();
+    console.log(dropdown);
+    
 
 }
   

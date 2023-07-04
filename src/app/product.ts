@@ -6,3 +6,4 @@ export interface Product {
     state:string;
     city:string;
 }
+

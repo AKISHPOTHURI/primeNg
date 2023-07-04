@@ -2,11 +2,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../product';
+import { P } from '../classdatatype';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductserviceService {
+    public productDetails!: Product[];
 
     // status: string[] = ['OUTOFSTOCK', 'INSTOCK', 'LOWSTOCK'];
 
@@ -126,4 +128,28 @@ export class ProductserviceService {
     // generateRating() {
     //     return Math.floor(Math.random() * Math.floor(5)+1);
     // }
+    getProduct(){
+        return this.productDetails = 
+            [
+                {
+                //   id: new P(100,"Bamboo Watch").id,
+                  id:new P().id,
+                  code: "f230fh0g3",
+                  name: "Mobile",
+                //   name: new P(100,"Bamboo Watch").name,
+                  price: 64,
+                  state: "California",
+                  city: "Fresno"
+                },
+                {
+                  id: 1001,
+                  code: "nvklal433",
+                  name: "Black Watch",
+                  price: 72,
+                  state: "Alabama",
+                  city: "Huntsville"
+                }
+              ]
+        
+    }
 }

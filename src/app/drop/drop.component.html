@@ -1,8 +1,8 @@
 <p>dropdown-1</p>
-<p-dropdown [options]="cities1" [(ngModel)]="selectedCity1"></p-dropdown>
+<p-dropdown [options]="cities1" [(ngModel)]="selectedCity1" (onChange)="getvar()"></p-dropdown>
 {{selectedCity1}}
-<p-dropdown [options]="cities2" [(ngModel)]="selectedCity2" optionLabel="name"></p-dropdown>
-{{selectedCity2.name}}
+<p-dropdown [options]="cities1" [(ngModel)]="selectedCity1" optionLabel="name" (onChange)="getvar()"></p-dropdown>
+{{selectedCity1}}
 
 <!-- <p>filter</p>
 <p-dropdown [options]="cities1" [(ngModel)]="selectedCity1" [filter]="true" (onChange)="getvar()"></p-dropdown>        

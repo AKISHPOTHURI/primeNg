@@ -3,12 +3,17 @@
 <p-table [columns]="cols" [value]="infos" dataKey="id" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" 
 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[5,10,15]" [(selection)]="selectedProducts3" 
 [(contextMenuSelection)]="selectedProduct" [contextMenu]="cm" styleClass="p-datatable-gridlines" [resizableColumns]="true"
-columnResizeMode="expand">
+columnResizeMode="expand" [scrollable]="true" scrollDirection="horizontal">
+    <ng-template pTemplate="caption">
+        <p>Table Sample</p>
+    </ng-template>
     <ng-template pTemplate="header" let-columns>
         <tr>
-            <th style="width: 3rem" pResizableColumn>
+            <th [frozen]="true" style="width: 3rem" pResizableColumn pFrozenColumn>
                 <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
             </th>
+            <th pResizableColumn>expansion</th>
+            <th pResizableColumn>expansion</th>
             <th pResizableColumn>expansion</th>
             <th pResizableColumn *ngFor="let col of columns" [pSortableColumn]="col.field">
                 {{col.header}}
@@ -18,11 +23,13 @@ columnResizeMode="expand">
     </ng-template>
     <ng-template pTemplate="body" let-info let-expanded="expanded" let-columns="columns">
         <tr [pContextMenuRow]="info">
-            <td>
+            <td pFrozenColumn >
                 <p-tableCheckbox [value]="info" (click)="selecteddProduct(info)"></p-tableCheckbox>
             </td>
+            <td style="width: 3rem"></td>
+            <td style="width: 3rem"></td>
             <td>
-                <a href="#" [pRowToggler]="info">
+                <a [pRowToggler]="info">
                     <i [ngClass]="expanded
                 ? 'pi pi-fw pi-chevron-circle-down'
                 : 'pi pi-fw pi-chevron-circle-right'"></i>
@@ -34,7 +41,7 @@ columnResizeMode="expand">
             </td>
         </tr>
     </ng-template>
-    <ng-template pTemplate="rowexpansion" let-info let-columns="columns">
+    <ng-template pTemplate="rowexpansion" let-info let-columns>
     <tr>
         <td colspan="columns.length + 1">
             <div class="grid p-fluid" style="font-size:16px; padding:20px">
@@ -66,15 +73,18 @@ columnResizeMode="expand">
         </td>
     </tr>
 </ng-template>
-<!-- <ng-template pTemplate="paginatorleft">
+<ng-template pTemplate="paginatorleft">
     <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
 </ng-template>
 <ng-template pTemplate="paginatorright">
     <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
-</ng-template> -->
+</ng-template>
+<ng-template pTemplate="summary">
+    <p>This is the sample of the primeng Table</p>
+</ng-template>
 </p-table>
 <h3>Column Grouping</h3>
-<p-table [value]="sales" [scrollable]="true" scrollHeight="500px">
+<p-table [value]="sales">
     <ng-template pTemplate="header">
         <tr>
             <th rowspan="3">Brand</th>
@@ -109,7 +119,7 @@ columnResizeMode="expand">
     </ng-template>
 </p-table>
 <h3>Row Grouping</h3>
-<p-table [value]="infos" sortField="state" sortMode="single" (onSort)="onSort()">
+<p-table [value]="infos" sortField="state">
     <ng-template pTemplate="header">
         <tr>
             <th>id</th>
@@ -118,7 +128,7 @@ columnResizeMode="expand">
             <th>price</th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
+    <ng-template pTemplate="body" let-rowData sortMode="single" let-rowIndex="rowIndex">
         <tr class="ui-widget-header" *ngIf="rowGroupMetadata[rowData.state].index === rowIndex">
             <td colspan="4">
                 <span style="font-weight:bold">{{rowData.state}}</span>
@@ -133,7 +143,7 @@ columnResizeMode="expand">
     </ng-template>
 </p-table>
 <h3>Alternate method Row Grouping</h3>
-<p-table [value]="infos" sortField="state" sortMode="single" (onSort)="onSort()">
+<!-- <p-table [value]="infos" sortField="state" sortMode="multiple" (onSort)="onSort()">
     <ng-template pTemplate="header">
         <tr>
             <th>state</th>
@@ -154,7 +164,30 @@ columnResizeMode="expand">
             <td>{{rowData.price}}</td>
         </tr>
     </ng-template>
+</p-table> -->
+<p-table [value]="infos" sortField="state" sortMode="single" (onSort)="onSort()">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>state</th>
+            <th>id</th>
+            <th>code</th>
+            <th>name</th>
+            <th>price</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex">
+        <tr>
+            <td *ngIf="rowGroupMetadata[rowData.state].index === rowIndex" [attr.rowspan]="rowGroupMetadata[rowData.state].size">
+                {{rowData.state}}
+            </td>
+            <td>{{rowData.id}}</td>
+            <td>{{rowData.code}}</td>
+            <td>{{rowData.name}}</td>
+            <td>{{rowData.price}}</td>
+        </tr>
+    </ng-template>
 </p-table>
+
 <h3>Table Reorder</h3>
 <p-table [value]="infos" [columns]="cols">
     <ng-template pTemplate="header" let-columns>
@@ -168,7 +201,7 @@ columnResizeMode="expand">
     <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
         <tr [pReorderableRow]="index">
             <td>
-                <span class="pi pi-bars" pReorderableRowHandle:any></span>
+                <span class="pi pi-bars" pReorderableRowHandle></span>
             </td>
             <td *ngFor="let col of columns">
                 {{rowData[col.field]}}
@@ -176,6 +209,7 @@ columnResizeMode="expand">
         </tr>
     </ng-template>
 </p-table>
+
 <h3>Data Export</h3>
 <p-table #dt [columns]="cols" [value]="infos" selectionMode="multiple" [(selection)]="selectedProducts3">
     <ng-template pTemplate="caption">
@@ -194,7 +228,7 @@ columnResizeMode="expand">
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-columns="columns">
-        <tr [pSelectableRow]="rowData">
+        <tr [pSelectableRow]>
             <td *ngFor="let col of columns">
                 {{rowData[col.field]}}
             </td>
@@ -228,8 +262,8 @@ columnResizeMode="expand">
 
 <div class="card">
     <h5>Flexible Viewport</h5>
-    <button type="button" (click)="showDialog()" pButton icon="pi pi-external-link" label="View" [style]="{width: '100px'}"></button>
-    <p-dialog header="Flexible ScrollHeight" [(visible)]="dialogVisible" [style]="{width: '50vw'}" [baseZIndex]="10000" [maximizable]="true" [modal]="true" [resizable]="true" [contentStyle]="{height: '300px'}">
+    <button type="button" (click)="showDialog()" pButton  label="View" [style]="{width: '100px'}"></button>
+    <p-dialog header="Flexible ScrollHeight" [draggable]="true" [(visible)]="dialogVisible" [style]="{width: '50vw'}" [baseZIndex]="10000" [maximizable]="true" [modal]="true" [contentStyle]="{height: '300px',width: '515.2px'}">
         <p-table [value]="infos" [scrollable]="true" scrollHeight="flex" [columns]="cols">
             <ng-template pTemplate="header" let-columns>
                 <tr>

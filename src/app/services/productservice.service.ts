@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../product';
 import { P } from '../classdatatype';
+import { Customer } from '../customer';
 
 @Injectable({
   providedIn: 'root'
@@ -128,6 +129,12 @@ export class ProductserviceService {
     // generateRating() {
     //     return Math.floor(Math.random() * Math.floor(5)+1);
     // }
+    getCustomersLarge() {
+      return this.http.get<any>('assets/customers-large.json')
+          .toPromise()
+          .then(res => <Customer[]>res.data)
+          .then(data => { return data; });
+  }
     getProduct(){
         return this.productDetails = 
             [

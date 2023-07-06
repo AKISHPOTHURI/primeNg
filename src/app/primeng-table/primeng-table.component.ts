@@ -48,7 +48,9 @@ export class PrimengTableComponent implements OnInit {
                     {label:'Rome', value:{id:2, name: 'Rome', code: 'RM'}},
                     {label:'London', value:{id:3, name: 'London', code: 'LDN'}},
                     {label:'Istanbul', value:{id:4, name: 'Istanbul', code: 'IST'}},
-                    {label:'Paris', value:{id:5, name: 'Paris', code: 'PRS'}}
+                    {label:'Paris', value:{id:5, name: 'Paris', code: 'PRS'}},
+                    {label:'Hyderabad', value:{id:6, name: 'Hyderabad', code: 'HYD'}},
+                    {label:'Warangal', value:{id:7, name: 'Warangal', code: 'WRL'}}
                 ];
         
                 //An array of cities

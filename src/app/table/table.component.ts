@@ -4,6 +4,7 @@ import {Product } from '../product';
 import { MenuItem,MessageService } from 'primeng/api'
 import * as FileSaver from 'file-saver';
 import { P } from '../classdatatype';
+import { state } from '@angular/animations';
 
 // class P {
 //   constructor(id:number,
@@ -46,9 +47,9 @@ export class TableComponent implements OnInit {
 
   columns!:any;
 
-  name = "Akish";
+  // name = "Akish";
 
-  dialogVisible: boolean | undefined;
+  dialogVisible: boolean = false;
 
   constructor(private productService: ProductserviceService,private messageService:MessageService) { }
 
@@ -79,7 +80,7 @@ export class TableComponent implements OnInit {
     this.updateRowGroupMetaData();
     this.items = [
       {label: 'View', icon: 'pi pi-fw pi-search', command: () => this.viewProduct(this.selectedProduct)},
-          {label: 'Delete', icon: 'pi pi-fw pi-times', command: () => this.deleteProduct(this.selectedProduct)}
+      {label: 'Delete', icon: 'pi pi-fw pi-times', command: () => this.deleteProduct(this.selectedProduct)}
   ];
   console.log(this.selectedProducts3);
   }
@@ -91,7 +92,7 @@ export class TableComponent implements OnInit {
   }
 
   onSort() {
-    this.updateRowGroupMetaData();
+    this.updateRowGroupMetaData(); 
   }
 
   updateRowGroupMetaData() {
@@ -106,12 +107,23 @@ export class TableComponent implements OnInit {
             else {
                 let previousRowData = this.infos[i - 1];
                 let previousRowGroup = previousRowData.state;
+                // console.log(previousRowData);
+                // console.log(state);
+                // console.log(previousRowGroup);            
                 if (state === previousRowGroup)
-                    this.rowGroupMetadata[state].size++;
+                {
+                  // console.log(this.rowGroupMetadata[state].size++);
+                  this.rowGroupMetadata[state].size++;
+                }
                 else
-                    this.rowGroupMetadata[state] = { index: i, size: 1 };
+                {
+                  this.rowGroupMetadata[state] = { index: i, size: 1 };
+                  // console.log(this.rowGroupMetadata[state]);
+                  
+                }              
             }
-        }
+          console.log(this.rowGroupMetadata[state].size);               
+        }       
     }
   }
 

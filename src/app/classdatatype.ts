@@ -9,7 +9,7 @@ export class P {
     //     this.id = 1000 + id;
     //     this.name = "Special " + name;
     //   } 
-    // constructor(){
-    //     this.id=5
-    // }
+    constructor(){
+        this.id=5
+    }
   };

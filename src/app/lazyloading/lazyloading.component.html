@@ -1,0 +1,20 @@
+<p>lazyloading works!</p>
+<p-table [value]="customers" [rows]="row"  [lazy]="true" (onLazyLoad)="loadCustomers($event)" 
+    [paginator]="true"[totalRecords]="totalRecords" [loading]="loading">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Name</th>
+            <th>Country</th>
+            <th>Company</th>
+            <th>Representative</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-customer>
+        <tr>
+            <td>{{customer.name}}</td>
+            <td>{{customer.country.name}}</td>
+            <td>{{customer.company}}</td>
+            <td>{{customer.representative.name}}</td>
+        </tr>
+    </ng-template>
+</p-table>

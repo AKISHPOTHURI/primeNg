@@ -48,7 +48,9 @@ import { PrimengTableComponent } from './primeng-table/primeng-table.component';
 import { DorpdownComponent } from './dorpdown/dorpdown.component';
 import { TableComponent } from './table/table.component';
 import { DropComponent } from './drop/drop.component';
+import { LazyloadingComponent } from './lazyloading/lazyloading.component';
 
+console.log("App module loaded");
 
 @NgModule({
   declarations: [
@@ -65,7 +67,8 @@ import { DropComponent } from './drop/drop.component';
     PrimengTableComponent,
     DorpdownComponent,
     TableComponent,
-    DropComponent
+    DropComponent,
+    LazyloadingComponent
   ],
   imports: [
     DialogModule,

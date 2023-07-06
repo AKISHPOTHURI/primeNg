@@ -1,4 +1,4 @@
-<!-- <div class="card">
+<div class="card" class="container">
   <p-table
     #table
     [value]="products2"
@@ -215,18 +215,21 @@
       </tr>
     </ng-template>
   </p-table>
-</div> -->
+</div>
+<div class="container">
 <h1>drop down</h1>
 <p-dropdown [options]="cities1" [(ngModel)]="selectedCity1"  [filter]="true" filterBy="value.code"></p-dropdown>
 
-<p-dropdown [options]="cities2" [(ngModel)]="selectedCity2" optionLabel="name"></p-dropdown>
+<p-dropdown [options]="cities2" [(ngModel)]="selectedCity2" optionLabel="name" [editable]="true" [showClear]="true"></p-dropdown>
 <h1>Grouping</h1>
 <p-dropdown [options]="groupedCars" [(ngModel)]="selectedCar" placeholder="Select a Car" [group]="true"></p-dropdown>
 <h1>Transition</h1>
 <p-dropdown [options]="cities1" [(ngModel)]="selectedCar" [showTransitionOptions]="'2000ms'" [hideTransitionOptions]="'2000ms'"></p-dropdown>
-
+<h1>VirtualScrolling</h1>
+<p-dropdown [options]="cities1" [virtualScroll]="true"  [itemSize]="5" [filter]="true"></p-dropdown>
 <h1>formControlName</h1>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <p-dropdown [options]="cities1" formControlName="city"></p-dropdown>
   <button type='submit'>Submit</button>
 </form>
+</div>

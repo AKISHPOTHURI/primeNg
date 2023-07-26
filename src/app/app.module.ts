@@ -52,6 +52,7 @@ import { LazyloadingComponent } from './lazyloading/lazyloading.component';
 import { CrudComponent } from './crud/crud.component';
 import { MessageService } from 'primeng/api';
 import { CodefirstComponent } from './codefirst/codefirst.component';
+import { GitComponent } from './git/git.component';
 console.log("App module loaded");
 
 @NgModule({
@@ -72,7 +73,8 @@ console.log("App module loaded");
     LazyloadingComponent,
     TableComponent,
     CrudComponent,
-    CodefirstComponent
+    CodefirstComponent,
+    GitComponent
   ],
   imports: [
     DialogModule,

@@ -1,3 +1,11 @@
 .test {
     color: black;
 }
+
+:host ::ng-deep .sticky {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 0 !important;
+    background-color: #cae8ca !important;
+    border: 2px solid #4CAF50 !important;
+  }

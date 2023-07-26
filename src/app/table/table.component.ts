@@ -87,7 +87,11 @@ export class TableComponent implements OnInit {
 
   getinfo(){
     this.productService.getProductsSmall().subscribe(data => {
-      return this.infos = data;     
+
+      this.infos = data;  
+      console.log(this.infos);
+      return this.infos;
+         
     });
   }
 

@@ -12,8 +12,8 @@ import { DorpdownComponent } from './dorpdown/dorpdown.component';
 import { TableComponent } from './table/table.component';
 import { DropComponent } from './drop/drop.component';
 import { LazyloadingComponent } from './lazyloading/lazyloading.component';
-
-
+import { CrudComponent } from './crud/crud.component';
+import { CodefirstComponent } from './codefirst/codefirst.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,11 +28,13 @@ const routes: Routes = [
   {path:'dropdown',component:DorpdownComponent},
   {path:'table',component:TableComponent},
   {path:'drop',component:DropComponent},
+  {path:'crud',component:CrudComponent},
   {path: 'lazyloading', component:LazyloadingComponent},
   {path:'admin', loadChildren:() => import('./admin/admin.module')
   .then(mod => mod.AdminModule)},
   {path:'user', loadChildren:() => import('./user/user.module')
-  .then(mod => mod.UserModule)}
+  .then(mod => mod.UserModule)},
+  {path:'codefirst', component:CodefirstComponent}
 ];
 
 @NgModule({

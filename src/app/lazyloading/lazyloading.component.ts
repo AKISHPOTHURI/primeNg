@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LazyLoadEvent, PrimeNGConfig } from 'primeng/api';
 import { ProductserviceService } from '../services/productservice.service';
-import { Product } from '../product';
 import { Customer } from '../customer';
-import { Row } from 'jspdf-autotable';
-import { first } from 'rxjs';
 
 @Component({
   selector: 'app-lazyloading',
@@ -19,7 +16,6 @@ export class LazyloadingComponent implements OnInit {
   customers!: Customer[];
 
   totalRecords!: number;
-  row = 10;
 
   cols!: any[];
 

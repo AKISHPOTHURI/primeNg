@@ -4,11 +4,15 @@ import { Injectable } from '@angular/core';
 import { Product } from '../product';
 import { P } from '../classdatatype';
 import { Customer } from '../customer';
+import { Observable, catchError, of } from 'rxjs';
+import { MessageService } from 'primeng/api';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
+
 })
 export class ProductserviceService {
+    products!: any;
     public productDetails!: Product[];
 
     // status: string[] = ['OUTOFSTOCK', 'INSTOCK', 'LOWSTOCK'];
@@ -46,10 +50,35 @@ export class ProductserviceService {
     //     "Yoga Set",
     // ];
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private messageService:MessageService) { }
+
+    private log(message: any) {
+      this.messageService.add(message);
+      console.log(message);
+      
+    }
+    
+
+    private handleError<T>(operation = 'operation', result?: T) {
+      return (error: any): Observable<T> => {
+    
+        // TODO: send the error to remote logging infrastructure
+        console.error(error); // log to console instead
+    
+        // TODO: better job of transforming error for user consumption
+        this.log(`${operation} failed: ${error.message}`);
+    
+        // Let the app keep running by returning an empty result.
+        return of(result as T);
+      };
+    }
+
 
     getProductsSmall() {
-        return this.http.get<Product[]>('http://localhost:3000/data')
+        return this.http.get<any>('http://localhost:3000/data')
+        .pipe(
+          catchError(this.handleError<any>('getProductsSmall'))
+        );
         // .toPromise()
         // .then(res => <Product[]>res.data)
         // .then(data => { 
@@ -135,6 +164,13 @@ export class ProductserviceService {
           .then(res => <Customer[]>res.data)
           .then(data => { return data; });
   }
+  getProducts() {
+    return this.http.get<any>('http://localhost:3000/productsdata')
+    .pipe(
+      catchError(this.handleError<any>('getProducts'))
+    );
+  }
+
     getProduct(){
         return this.productDetails = 
             [

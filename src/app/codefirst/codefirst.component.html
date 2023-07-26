@@ -1,0 +1,167 @@
+<p-toast></p-toast>
+<div class="card">
+        <p-table [value]="Employeedata" dataKey="employeeId" editMode="row">
+            <ng-template pTemplate="caption">
+                <div class="p-d-flex">
+                    <button label="Export" type="button" pButton pRipple icon="pi pi-file-excel" class="p-button-success p-mr-2" (click)="downloadEmployees()"  pTooltip="XLS" tooltipPosition="bottom"></button>
+                    <button label="Export selected" type="button" pButton pRipple icon="pi pi-file-excel" class="p-button-success p-mr-2" (click)="downloadSelectedEmployees()"  pTooltip="XLS" tooltipPosition="bottom"></button>
+                    <button label="Import" type="button" pButton pRipple icon="pi pi-file-excel" class="p-button-help p-mr-2" pTooltip="XLS" tooltipPosition="bottom"></button>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th [frozen]="true" style="width: 3rem" pResizableColumn pFrozenColumn>
+                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                    </th>
+                    <th>Employee Id</th>
+                    <th>Employee Name</th>
+                    <th>Department Id</th>
+                    <th>Department Name</th>
+                    <th style="width:8rem"></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-employee let-editing="editing" let-ri="rowIndex">
+                <tr [pEditableRow]="employee">
+                    <td pFrozenColumn >
+                        <p-tableCheckbox [value]="employee" (click)="selectedEmployee(employee)"></p-tableCheckbox>
+                    </td>
+                    <td pEditableColumn>
+                        <p-cellEditor>
+                            <ng-template pTemplate="input">
+                                <input pInputText type="text" [(ngModel)]="employee.employeeId">
+                            </ng-template>
+                            <ng-template pTemplate="output">
+                                {{employee.employeeId}}
+                            </ng-template>
+                        </p-cellEditor>
+                    </td>
+                    <td pEditableColumn>
+                        <p-cellEditor>
+                            <ng-template pTemplate="input">
+                                <input pInputText type="text" [(ngModel)]="employee.employeeName" required>
+                            </ng-template>
+                            <ng-template pTemplate="output">
+                                {{employee.employeeName}}
+                            </ng-template>
+                        </p-cellEditor>
+                    </td>
+                    <td pEditableColumn>
+                        <p-cellEditor>
+                            <ng-template pTemplate="input">
+                                <input pInputText type="text" [(ngModel)]="employee.departmentId" required>
+                            </ng-template>
+                            <ng-template pTemplate="output">
+                                {{employee.departmentId}}
+                            </ng-template>
+                        </p-cellEditor>
+                    </td>
+                    <td pEditableColumn>
+                        <p-cellEditor>
+                            <ng-template pTemplate="input">
+                                <input pInputText type="text" [(ngModel)]="employee.departments.departmentName" required>
+                            </ng-template>
+                            <ng-template pTemplate="output">
+                                {{employee.departments.departmentName}}
+                            </ng-template>
+                        </p-cellEditor>
+                    </td>
+                    <td style="text-align:center">
+                        <!-- <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil" (click)="onRowEditInit(employee)" class="p-button-rounded p-button-text"></button> -->
+                        <!-- <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check" (click)="onRowEditSave(employee)" class="p-button-rounded p-button-text p-button-success p-mr-2"></button> -->
+                        <!-- <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times" (click)="onRowEditCancel(employee, ri)" class="p-button-rounded p-button-text p-button-danger"></button> -->
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+
+    <div class="card">
+        <p-table [value]="Productsdata" dataKey="productId" editMode="row">
+            <ng-template pTemplate="caption">
+                <div class="p-d-flex">
+                    <button label="Import" type="button" pButton pRipple icon="pi pi-file-excel"  class="p-button-help p-mr-2" pTooltip="XLS" tooltipPosition="bottom"></button>
+                    <input type="file" (change)="onFileSelected($event)" />
+                    <button (click)="uploadExcelFile()">Upload Excel</button>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Product Id</th>
+                    <th>Product Name</th>
+                    <th>Seller ID</th>
+                    <th>Seller Name</th>
+                    <th>Colour</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Image Link</th>
+                    <th style="width:8rem"></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product let-editing="editing" let-ri="rowIndex">
+                <tr [pEditableRow]="product">
+                    <td>
+                        <p-cellEditor>
+                            <ng-template pTemplate="output">
+                                {{product.productId}}
+                            </ng-template>
+                        </p-cellEditor>
+                    </td>
+                    <td>
+                        <p-cellEditor>
+                            <ng-template pTemplate="output">
+                                {{product.productName}}
+                            </ng-template>
+                        </p-cellEditor>
+                    </td>
+                    <td>
+                        <p-cellEditor>
+                            <ng-template pTemplate="output">
+                                {{product.sellerID}}
+                            </ng-template>
+                        </p-cellEditor>
+                    </td>
+                    <td>
+                        <p-cellEditor>
+                            <ng-template pTemplate="output">
+                                {{product.sellerName}}
+                            </ng-template>
+                        </p-cellEditor>
+                    </td>
+                    <td>
+                        <p-cellEditor>
+                            <ng-template pTemplate="output">
+                                {{product.colour}}
+                            </ng-template>
+                        </p-cellEditor>
+                    </td>
+                    <td>
+                        <p-cellEditor>
+                            <ng-template pTemplate="output">
+                                {{product.category}}
+                            </ng-template>
+                        </p-cellEditor>
+                    </td>
+                    <td>
+                        <p-cellEditor>
+                            <ng-template pTemplate="output">
+                                {{product.price}}
+                            </ng-template>
+                        </p-cellEditor>
+                    </td>
+                    <td>
+                        <p-cellEditor>
+                            <ng-template pTemplate="output">
+                                {{product.image}}
+                            </ng-template>
+                        </p-cellEditor>
+                    </td>
+                    <td style="text-align:center">
+                        <!-- <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil" (click)="onRowEditInit(employee)" class="p-button-rounded p-button-text"></button> -->
+                        <!-- <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check" (click)="onRowEditSave(employee)" class="p-button-rounded p-button-text p-button-success p-mr-2"></button> -->
+                        <!-- <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times" (click)="onRowEditCancel(employee, ri)" class="p-button-rounded p-button-text p-button-danger"></button> -->
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+    

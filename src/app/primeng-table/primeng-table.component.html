@@ -1,3 +1,4 @@
+<div class="sticky">I am sticky!</div>
 <div class="card" class="container">
   <p-table
     #table
@@ -8,6 +9,8 @@
     [(selection)]="selectedProducts"
     dataKey="id"
     editMode="row"
+    scrollHeight="800px"
+    class="sticky"
   >
     <ng-template pTemplate="header">
       <tr class="w-full">
@@ -84,9 +87,10 @@
             class="search-s"
           />
         </th>
-        <th style="width: 8rem"></th>
+        <th class="search" style="width: 8rem"></th>
       </tr>
     </ng-template>
+    <div class="sticky">I am sticky!</div>
     <ng-template
       pTemplate="body"
       let-product

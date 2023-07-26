@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -49,7 +49,9 @@ import { DorpdownComponent } from './dorpdown/dorpdown.component';
 import { TableComponent } from './table/table.component';
 import { DropComponent } from './drop/drop.component';
 import { LazyloadingComponent } from './lazyloading/lazyloading.component';
-
+import { CrudComponent } from './crud/crud.component';
+import { MessageService } from 'primeng/api';
+import { CodefirstComponent } from './codefirst/codefirst.component';
 console.log("App module loaded");
 
 @NgModule({
@@ -66,9 +68,11 @@ console.log("App module loaded");
     ChunkPipe,
     PrimengTableComponent,
     DorpdownComponent,
-    TableComponent,
     DropComponent,
-    LazyloadingComponent
+    LazyloadingComponent,
+    TableComponent,
+    CrudComponent,
+    CodefirstComponent
   ],
   imports: [
     DialogModule,
@@ -105,7 +109,7 @@ console.log("App module loaded");
     ToastModule
 
   ],
-  providers: [
+  providers: [MessageService,
     DatePipe,
   {
       provide: 'SocialAuthServiceConfig',

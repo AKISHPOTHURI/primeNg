@@ -22,3 +22,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .p-inputtext {
     width: 150px;
 }
+
+.p-button.p-button-help, .p-buttonset.p-button-help > .p-button, .p-splitbutton.p-button-help > .p-button {
+position:absolute;
+right: 1px;
+}
+
+.p-button.p-button-danger, .p-buttonset.p-button-danger > .p-button, .p-splitbutton.p-button-danger > .p-button {
+    left: 5px;
+}

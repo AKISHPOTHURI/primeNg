@@ -1,6 +1,6 @@
-<p>lazyloading works!</p>
-<p-table [value]="customers" [rows]="row"  [lazy]="true" (onLazyLoad)="loadCustomers($event)" 
-    [paginator]="true"[totalRecords]="totalRecords" [loading]="loading">
+<h1>Lazy Loading of primeng Table</h1>
+<p-table [value]="customers" [rows]="10"  [lazy]="true" (onLazyLoad)="loadCustomers($event)" 
+    [paginator]="true" [totalRecords]="totalRecords" [loading]="loading" [scrollable]="true" scrollHeight="200px">
     <ng-template pTemplate="header">
         <tr>
             <th>Name</th>

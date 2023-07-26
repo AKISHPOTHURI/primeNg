@@ -15,7 +15,14 @@ interface City{
   selector: 'app-primeng-table',
   templateUrl: './primeng-table.component.html',
   providers: [MessageService],
-  styleUrls: ['./primeng-table.component.scss']
+  styleUrls: ['./primeng-table.component.scss'],
+  styles:[`
+            :host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 69px;
+        }
+  `]
 })
 export class PrimengTableComponent implements OnInit { 
 
@@ -125,7 +132,7 @@ export class PrimengTableComponent implements OnInit {
         //     { field: "City", header: "City"},
         //   ];
         this.productService.getProductsSmall().subscribe(data => this.products2 = data);
-        console.log(this.productService.getProduct());       
+        console.log(this.productService.getProducts());       
         this.productService.getProduct();
         // console.log(this.products2)
         this.getCities(this.selectedState);

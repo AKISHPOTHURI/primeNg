@@ -14,6 +14,7 @@ import { DropComponent } from './drop/drop.component';
 import { LazyloadingComponent } from './lazyloading/lazyloading.component';
 import { CrudComponent } from './crud/crud.component';
 import { CodefirstComponent } from './codefirst/codefirst.component';
+import { ButtonsComponent } from './buttons/buttons.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path:'table',component:TableComponent},
   {path:'drop',component:DropComponent},
   {path:'crud',component:CrudComponent},
+  {path:'button', component: ButtonsComponent},
   {path: 'lazyloading', component:LazyloadingComponent},
   {path:'admin', loadChildren:() => import('./admin/admin.module')
   .then(mod => mod.AdminModule)},

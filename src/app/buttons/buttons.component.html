@@ -1,0 +1,8 @@
+<span *ngFor="let name of btnName">
+    <button pButton type="button" (click)="loadEmployee(name)" label={{name}}></button>
+</span>
+<!-- <button pButton type="button" label="Primary"></button>
+<button pButton type="button" label="Secondary" class="p-button-secondary"></button>
+<button pButton type="button" label="Success" class="p-button-success"></button>
+<button pButton type="button" label="Info" class="p-button-info"></button> -->
+<button id="btn-name" type="button" pButton label={{buttonName}} icon="pi pi-file-excel" class="p-button-help p-ml-auto"  pTooltip="XLS" tooltipPosition="bottom"></button>

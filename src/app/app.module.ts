@@ -53,6 +53,7 @@ import { CrudComponent } from './crud/crud.component';
 import { MessageService } from 'primeng/api';
 import { CodefirstComponent } from './codefirst/codefirst.component';
 import { GitComponent } from './git/git.component';
+import { ButtonsComponent } from './buttons/buttons.component';
 console.log("App module loaded");
 
 @NgModule({
@@ -74,7 +75,8 @@ console.log("App module loaded");
     TableComponent,
     CrudComponent,
     CodefirstComponent,
-    GitComponent
+    GitComponent,
+    ButtonsComponent
   ],
   imports: [
     DialogModule,

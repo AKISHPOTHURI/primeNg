@@ -171,6 +171,13 @@ export class ProductserviceService {
     );
   }
 
+  getSales(role:string) {
+    return this.http.get<any>(`http://localhost:3000/${role}`)
+    .pipe(
+      catchError(this.handleError<any>('getSales'))
+    );
+  }
+
     getProduct(){
         return this.productDetails = 
             [

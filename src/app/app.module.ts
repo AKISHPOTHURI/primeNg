@@ -8,7 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import{MatIconModule}from'@angular/material/icon'
 import { TableModule } from 'primeng/table';
 import { TooltipModule } from "primeng/tooltip";
-import { CommonModule } from '@angular/common';
+// import { CommonModule } from '@angular/common';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {ToastModule} from 'primeng/toast';
@@ -34,7 +34,7 @@ import { DatepickerComponent } from './components/datepicker/datepicker.componen
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { ChunkPipe } from './pipes/chunk.pipe';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MatMomentDateModule, MomentDateAdapter } from '@angular/material-moment-adapter';
-import { DatePipe } from '@angular/common';
+import {  DatePipe } from '@angular/common';
 import { ListboxModule } from 'primeng/listbox';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
@@ -54,6 +54,7 @@ import { MessageService } from 'primeng/api';
 import { CodefirstComponent } from './codefirst/codefirst.component';
 import { GitComponent } from './git/git.component';
 import { ButtonsComponent } from './buttons/buttons.component';
+import { ProductFeaturesModule } from './products/product-features/product-features.module';
 console.log("App module loaded");
 
 @NgModule({
@@ -107,10 +108,10 @@ console.log("App module loaded");
     TableModule,
     MultiSelectModule,
     TooltipModule,
-    CommonModule,
     MessageModule,
     MessagesModule,
-    ToastModule
+    ToastModule,
+    ProductFeaturesModule
 
   ],
   providers: [MessageService,

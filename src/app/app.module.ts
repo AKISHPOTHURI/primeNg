@@ -55,6 +55,8 @@ import { CodefirstComponent } from './codefirst/codefirst.component';
 import { GitComponent } from './git/git.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { ProductFeaturesModule } from './products/product-features/product-features.module';
+import { TemplateComponent } from './template/template.component';
+import { PurepipePipe } from './pipes/purepipe.pipe';
 console.log("App module loaded");
 
 @NgModule({
@@ -77,7 +79,9 @@ console.log("App module loaded");
     CrudComponent,
     CodefirstComponent,
     GitComponent,
-    ButtonsComponent
+    ButtonsComponent,
+    TemplateComponent,
+    PurepipePipe
   ],
   imports: [
     DialogModule,

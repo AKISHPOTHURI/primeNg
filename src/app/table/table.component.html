@@ -202,7 +202,7 @@ columnResizeMode="expand" [scrollable]="true" scrollDirection="horizontal">
     <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
         <tr [pReorderableRow]="index">
             <td>
-                <span class="pi pi-bars" pReorderableRowHandle></span>
+                <span class="pi pi-bars"></span>
             </td>
             <td *ngFor="let col of columns">
                 {{rowData[col.field]}}

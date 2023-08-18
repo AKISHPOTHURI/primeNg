@@ -1,7 +1,12 @@
 <div>
-    {{rNum}}
-    <span *ngFor="let role of roles">
-        <button pButton type="button" label={{role}} (click)="loadSales(role)"></button>
+    <ng-content></ng-content>
+</div>
+
+<div>
+    {{rNum}} <br>
+    <!-- {{roles}} -->
+    <span *ngFor="let role of this.roles">
+        <button pButton type="button"  label={{role}} (click)="loadSales(role)"></button>
     </span>
 </div>
 <p-table #tb [columns]="cols" [value]="bumaData">
@@ -20,3 +25,7 @@
         </tr>
     </ng-template>
 </p-table>
+
+<p>
+    Birthday :- {{birthday | date | uppercase}}
+</p>

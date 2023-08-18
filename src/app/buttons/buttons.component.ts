@@ -18,13 +18,17 @@ export class ButtonsComponent implements OnInit {
   eleData!:any[];
   lmData!:any[];
   dlmData!:any[];
+  birthday = new Date(1988, 11, 21);
+  roleData:{[index:string]:[string,string]} = {};
+  role!:any;
 
     // btnName:string[] = ['BU','ELE MD','ELE HRBP','LM','DLM'];
   // buttonName:any = "Download "+ this.btnName[0];
   constructor(private productService:ProductserviceService) {
   this.studName! = "DELL"; 
   this.roles = ['BUMA','ELE','LM','DLM'];
-  this.loadSales(this.roles[0]);
+  this.role = this.roles[0];
+  this.loadSales(this.role);
   }
 
   ngOnInit(): void {
@@ -44,7 +48,23 @@ export class ButtonsComponent implements OnInit {
     
   // }
   loadSales(role:string){
-    console.log(role);
+    // let role = (event.target as Element);
+    // let role = document.getElementById('role')?.textContent;
+    // this.role = event.target;
+    // this.role = role;
+    // console.log(role);
+    // console.log(this.roleData[role]);
+    // // this.roleData['BUMA'] = ['Aksh','ahinc','cahian','acuajcn'];
+    // console.log(this.roleData['BUMA']);
+    
+    
+    // if (this.roles.indexOf(role) > 0){
+    //     this.productService.getSales(role).subscribe(data => 
+    //     {
+    //       this.roleData[role] = data;
+    //       return this.roleData[role];
+    //     });  
+    // }
     if (role == this.roles[0] && this.bumaData == null){
       this.productService.getSales(role).subscribe(data => 
         {

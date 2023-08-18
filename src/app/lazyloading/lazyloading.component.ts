@@ -49,7 +49,7 @@ export class LazyloadingComponent implements OnInit {
       //imitate db connection over a network
       setTimeout(() => {
           if (this.datasource) {
-              this.customers = this.datasource.slice(event.first,(event.rows+event.first));
+              this.customers = this.datasource.slice(event.first,(1+5));
               console.log(this.customers);
               console.log(event);
               

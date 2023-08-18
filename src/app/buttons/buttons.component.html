@@ -4,12 +4,11 @@
 
 <div>
     {{rNum}} <br>
-    <!-- {{roles}} -->
     <span *ngFor="let role of this.roles">
         <button pButton type="button"  label={{role}} (click)="loadSales(role)"></button>
     </span>
 </div>
-<p-table #tb [columns]="cols" [value]="bumaData">
+<p-table #tb [columns]="cols" [value]="this.roleData[role]">
     <ng-template pTemplate="header" let-columns>
         <tr>
             <th *ngFor="let col of columns">
@@ -28,4 +27,8 @@
 
 <p>
     Birthday :- {{birthday | date | uppercase}}
+    <br>
+    {{30 | currency:'INR'}}
+    <br>
+    {{ 30 | percent}}
 </p>

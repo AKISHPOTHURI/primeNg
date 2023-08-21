@@ -16,6 +16,7 @@ import { CrudComponent } from './crud/crud.component';
 import { CodefirstComponent } from './codefirst/codefirst.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { TemplateComponent } from './template/template.component';
+import { PromiseVsObservableComponent } from './promise-vs-observable/promise-vs-observable.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -32,6 +33,7 @@ const routes: Routes = [
   {path:'drop',component:DropComponent},
   {path:'crud',component:CrudComponent},
   {path:'button', component: ButtonsComponent},
+  {path:'promvsobs', component: PromiseVsObservableComponent},
   {path:'template', component: TemplateComponent},
   {path: 'lazyloading', component:LazyloadingComponent},
   {path:'admin', loadChildren:() => import('./admin/admin.module')

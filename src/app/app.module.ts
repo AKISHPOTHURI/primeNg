@@ -34,7 +34,7 @@ import { DatepickerComponent } from './components/datepicker/datepicker.componen
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { ChunkPipe } from './pipes/chunk.pipe';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MatMomentDateModule, MomentDateAdapter } from '@angular/material-moment-adapter';
-import {  DatePipe } from '@angular/common';
+import {  CurrencyPipe, DatePipe } from '@angular/common';
 import { ListboxModule } from 'primeng/listbox';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
@@ -57,6 +57,7 @@ import { ButtonsComponent } from './buttons/buttons.component';
 import { ProductFeaturesModule } from './products/product-features/product-features.module';
 import { TemplateComponent } from './template/template.component';
 import { PurepipePipe } from './pipes/purepipe.pipe';
+import { PromiseVsObservableComponent } from './promise-vs-observable/promise-vs-observable.component';
 console.log("App module loaded");
 
 @NgModule({
@@ -81,7 +82,8 @@ console.log("App module loaded");
     GitComponent,
     ButtonsComponent,
     TemplateComponent,
-    PurepipePipe
+    PurepipePipe,
+    PromiseVsObservableComponent
   ],
   imports: [
     DialogModule,
@@ -118,8 +120,7 @@ console.log("App module loaded");
     ProductFeaturesModule
 
   ],
-  providers: [MessageService,
-    DatePipe,
+  providers: [MessageService,CurrencyPipe,
   {
       provide: 'SocialAuthServiceConfig',
       useValue: {

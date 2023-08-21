@@ -2,8 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'joinArray',
-  // pure: false
-  pure:true
+  pure: false
+  // pure:true
 })
 export class PurepipePipe implements PipeTransform {
 

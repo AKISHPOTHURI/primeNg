@@ -9,7 +9,7 @@ export class TemplateComponent implements OnInit {
 
   data = {
     name: 'Arnold',
-    title: 'Web Developer'
+    title: 'Web Developers'
    }
 
   country = ['India', 'USA', 'Dubai']

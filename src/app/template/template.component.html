@@ -1,6 +1,6 @@
 <div>
     <p>Templates</p>
-    <!-- Component Directive  -->
+    <!-- Component Directive -->
     <app-buttons></app-buttons>
 </div>
 <div>
@@ -9,17 +9,18 @@
     <p [ngClass]="['italic','bold']">Attribute directive</p>
     <p [ngClass]="{italic:true,bold:false}">Attribute directive</p>
 </div>
-<div>
+
     <ng-container *ngTemplateOutlet="sample; context:{$implicit: data, name:'Akish'}"></ng-container>
     <hr />
 
     <ng-template #sample let-data let-name="name">
         <span>{{ data.name }} and {{name}} from {{data.title}} </span>
     </ng-template>
-</div>
 
 <app-buttons>
-    Hi This is ng content
+    <p>This is ng-content</p>
+    <ng-container *ngTemplateOutlet="sample; context:{$implicit: data, name:'Ram'}"></ng-container>
+    <hr />
 </app-buttons>
 <!-- <ng-container *ngTemplateOutlet="sample; context: {$implicit: 'World', name: 'Krishna' }"></ng-container>
 <hr />

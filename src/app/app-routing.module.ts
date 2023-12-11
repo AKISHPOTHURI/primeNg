@@ -17,6 +17,7 @@ import { CodefirstComponent } from './codefirst/codefirst.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { TemplateComponent } from './template/template.component';
 import { PromiseVsObservableComponent } from './promise-vs-observable/promise-vs-observable.component';
+import { PrimecurdComponent } from './primecurd/primecurd.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -40,7 +41,8 @@ const routes: Routes = [
   .then(mod => mod.AdminModule)},
   {path:'user', loadChildren:() => import('./user/user.module')
   .then(mod => mod.UserModule)},
-  {path:'codefirst', component:CodefirstComponent}
+  {path:'codefirst', component:CodefirstComponent},
+  {path:'primecrud', component:PrimecurdComponent}
 ];
 
 @NgModule({

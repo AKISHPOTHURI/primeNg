@@ -58,6 +58,7 @@ import { ProductFeaturesModule } from './products/product-features/product-featu
 import { TemplateComponent } from './template/template.component';
 import { PurepipePipe } from './pipes/purepipe.pipe';
 import { PromiseVsObservableComponent } from './promise-vs-observable/promise-vs-observable.component';
+import { PrimecurdComponent } from './primecurd/primecurd.component';
 console.log("App module loaded");
 
 @NgModule({
@@ -83,7 +84,8 @@ console.log("App module loaded");
     ButtonsComponent,
     TemplateComponent,
     PurepipePipe,
-    PromiseVsObservableComponent
+    PromiseVsObservableComponent,
+    PrimecurdComponent
   ],
   imports: [
     DialogModule,

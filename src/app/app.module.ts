@@ -59,6 +59,7 @@ import { TemplateComponent } from './template/template.component';
 import { PurepipePipe } from './pipes/purepipe.pipe';
 import { PromiseVsObservableComponent } from './promise-vs-observable/promise-vs-observable.component';
 import { PrimecurdComponent } from './primecurd/primecurd.component';
+import { SentimentComponent } from './sentiment/sentiment.component';
 console.log("App module loaded");
 
 @NgModule({
@@ -85,7 +86,8 @@ console.log("App module loaded");
     TemplateComponent,
     PurepipePipe,
     PromiseVsObservableComponent,
-    PrimecurdComponent
+    PrimecurdComponent,
+    SentimentComponent
   ],
   imports: [
     DialogModule,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PrimecrudService } from '../services/primecrud.service';
 import { student } from '../student';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { of, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-primecurd',
@@ -19,6 +20,9 @@ export class PrimecurdComponent implements OnInit {
   studentCreateDialog:boolean = false;
   data:any ;
   idList:any;
+  public responseData1: any;
+  public responseData2: any;
+  public responseData3: any;
 
   constructor(private service:PrimecrudService,private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
@@ -102,8 +106,36 @@ createStudent() {
   })
 }
 
-deleteSelectedStudents() {
+first(){
+  this.service.requestDataFromMultipleSources().subscribe((data) => {
+    console.log(data)
+  })
+}
 
+second() {
+  this.service.getAllEmployees().subscribe((data) => {
+    console.log(data)
+  })
+}
+
+fullfunction(){
+  console.log("execute")
+  // this.service.requestDataFromMultipleSources().subscribe(responseList => {
+  //   this.responseData1 = responseList[0];
+  //   this.responseData2 = responseList[1];
+  //   this.responseData3 = responseList[2];
+  //   console.log("responseData1",this.responseData1)
+  //   console.log("responseData2",this.responseData2)
+  this.service.requestDataFromMultipleSources().pipe(
+    switchMap(() => this.service.getAllEmployees())
+  ).subscribe(
+    response => { 
+      console.log(response)
+    },
+    error => {
+      // handle errors
+    }
+  );
 }
 
 findIndexById(id: string): number {

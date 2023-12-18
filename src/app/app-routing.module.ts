@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-// import { LoginComponent } from './components/login/login.component';
 import { SigupComponent } from './components/signup/sigup.component';
 import { JoblistPageComponent } from './components/joblist-page/joblist-page.component';
 import { CompanyProfileComponent } from './components/company-profile/company-profile.component';
@@ -18,6 +17,7 @@ import { ButtonsComponent } from './buttons/buttons.component';
 import { TemplateComponent } from './template/template.component';
 import { PromiseVsObservableComponent } from './promise-vs-observable/promise-vs-observable.component';
 import { PrimecurdComponent } from './primecurd/primecurd.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -42,7 +42,8 @@ const routes: Routes = [
   {path:'user', loadChildren:() => import('./user/user.module')
   .then(mod => mod.UserModule)},
   {path:'codefirst', component:CodefirstComponent},
-  {path:'primecrud', component:PrimecurdComponent}
+  {path:'primecrud', component:PrimecurdComponent},
+  {path:'primecrud/login', component:LoginComponent}
 ];
 
 @NgModule({

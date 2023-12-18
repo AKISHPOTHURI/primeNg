@@ -1,4 +1,8 @@
 <div class="container">
+    <div>
+        <button class="Login" pButton pRipple label="Login" icon="pi pi-user" routerLink="login"></button>
+    </div>
+    <br>
 <div>
     <span class="">
         <button class="new" pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
@@ -6,7 +10,7 @@
         <!-- <button class="export" pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"></button> -->
     </span>
 </div>  
-<div></div>
+<div class="pb-1"></div>
 <div class="card">
     <p-table #dt [value]="students" [rows]="10" [paginator]="true" 
         [(selection)]="selectedStudents" [rowHover]="true" dataKey="studentID"

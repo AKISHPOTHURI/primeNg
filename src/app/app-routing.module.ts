@@ -18,6 +18,7 @@ import { TemplateComponent } from './template/template.component';
 import { PromiseVsObservableComponent } from './promise-vs-observable/promise-vs-observable.component';
 import { PrimecurdComponent } from './primecurd/primecurd.component';
 import { LoginComponent } from './components/login/login.component';
+import { SentimentComponent } from './sentiment/sentiment.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -43,7 +44,8 @@ const routes: Routes = [
   .then(mod => mod.UserModule)},
   {path:'codefirst', component:CodefirstComponent},
   {path:'primecrud', component:PrimecurdComponent},
-  {path:'primecrud/login', component:LoginComponent}
+  {path:'primecrud/login', component:LoginComponent},
+  {path:'skeleton', component:SentimentComponent},
 ];
 
 @NgModule({

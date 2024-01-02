@@ -1,1 +1,30 @@
 <p>sentiment works!</p>
+<div *ngIf="false" class="card">
+    <ngx-skeleton-loader count="5" animation="progress-dark"
+    [theme]="{'background-color': '#B2BEB5', height:'50px', 'border-radius':'20px'}"></ngx-skeleton-loader>
+</div>
+<div *ngIf="true" class="item">
+
+  <ngx-skeleton-loader count="4" appearance="circle" animation="progress-dark"
+  [theme]="{width: '360px', height:'360px', 'border-radius':'20px'}"></ngx-skeleton-loader>
+</div>
+
+<div class="container">
+    <!-- Loading Items -->
+    <li class="skeleton" *ngFor="let item of generateFake(5)">
+      <div class="item-wrap">
+        <div class="item-img">
+          <ngx-skeleton-loader appearance="circle" [theme]="{ height: '100px',width: '100px'}"></ngx-skeleton-loader>
+        </div>
+        <div class="item-content">
+          <div>
+            <ngx-skeleton-loader></ngx-skeleton-loader>
+          </div>
+          <p>
+            <ngx-skeleton-loader [theme]="{ height: '30px'}"></ngx-skeleton-loader>
+          </p>
+        </div>
+      </div>
+    </li>
+    <br>
+</div>

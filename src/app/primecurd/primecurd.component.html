@@ -11,7 +11,7 @@
     </span>
 </div>  
 <div class="pb-1"></div>
-<div class="card">
+<div class="card" *ngIf="skeleton">
     <p-table #dt [value]="students" [rows]="10" [paginator]="true" 
         [(selection)]="selectedStudents" [rowHover]="true" dataKey="studentID"
         currentPageReportTemplate="Showing {first} to {last} of {{students.length}} entries" [showCurrentPageReport]="true">
@@ -36,6 +36,7 @@
                 </th>
                 <th pSortableColumn="name">Last Name <p-sortIcon field="lastName"></p-sortIcon></th>
                 <th pSortableColumn="price">First Name <p-sortIcon field="firstMidName"></p-sortIcon></th>
+                <th>Actions</th>
                 <!-- <th pSortableColumn="category">Category <p-sortIcon field="category"></p-sortIcon></th>-->
                 <!-- <th pSortableColumn="rating">Reviews <p-sortIcon field="rating"></p-sortIcon></th> -->
                 <!-- <th pSortableColumn="inventoryStatus">Status <p-sortIcon field="inventoryStatus"></p-sortIcon></th>  -->
@@ -64,6 +65,28 @@
         </ng-template>
     </p-table>
 </div>
+
+</div>
+
+<div class="container">
+    <div class="card" *ngIf="skeletonTable">
+        <p-table [value]="students" [tableStyle]="{ 'min-width': '81rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Actions</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-student>
+                <tr>
+                    <td style="width: 24rem"><p-skeleton></p-skeleton></td>
+                    <td style="width: 24rem"><p-skeleton></p-skeleton></td>
+                    <td style="width: 24rem"><p-skeleton></p-skeleton></td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
 </div>
 
 <p-dialog [(visible)]="studentDialog" [style]="{width: '450px'}" header="Student Details" [modal]="true" styleClass="p-fluid">

@@ -60,6 +60,8 @@ import { PurepipePipe } from './pipes/purepipe.pipe';
 import { PromiseVsObservableComponent } from './promise-vs-observable/promise-vs-observable.component';
 import { PrimecurdComponent } from './primecurd/primecurd.component';
 import { SentimentComponent } from './sentiment/sentiment.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { SkeletonModule } from 'primeng/skeleton';
 console.log("App module loaded");
 
 @NgModule({
@@ -121,8 +123,9 @@ console.log("App module loaded");
     MessageModule,
     MessagesModule,
     ToastModule,
-    ProductFeaturesModule
-
+    ProductFeaturesModule,
+    NgxSkeletonLoaderModule,
+    SkeletonModule
   ],
   providers: [MessageService,CurrencyPipe,
   {

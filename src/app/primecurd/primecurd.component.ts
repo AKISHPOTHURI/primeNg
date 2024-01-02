@@ -23,6 +23,8 @@ export class PrimecurdComponent implements OnInit {
   public responseData1: any;
   public responseData2: any;
   public responseData3: any;
+  skeleton:boolean = false;
+  skeletonTable:boolean = true;
 
   constructor(private service:PrimecrudService,private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
@@ -151,9 +153,16 @@ findIndexById(id: string): number {
 }
 
   getStudents(){
-    this.service.getStudents().subscribe((data) => {
-      this.students = data;
-    })
+      this.service.getStudents().subscribe((data) => {
+        this.students = data;
+        if (this.students){
+          setTimeout(() => {
+            this.skeletonTable = false;
+            this.skeleton = !this.skeletonTable;
+          },5000)
+
+        }
+      })
   }
 
 }

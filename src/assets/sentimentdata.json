@@ -1,0 +1,46 @@
+{
+
+    "data":
+    [
+        {  
+            "text": "The food is good",  
+            "percentage": 82,  
+            "sentiment": 1
+        },
+        {  
+            "text": "The food is good",  
+            "percentage": 20,  
+            "sentiment": 0
+        },
+        {  
+            "text": "The food is good",  
+            "percentage": 80,  
+            "sentiment": 1
+        },
+        {  
+            "text": "The food is good",  
+            "percentage": 45,  
+            "sentiment": 0
+        },
+        {  
+            "text": "The food is good",  
+            "percentage": 30,  
+            "sentiment": 0
+        },
+        {  
+            "text": "The food is good",  
+            "percentage": 60,  
+            "sentiment": 1
+        },
+        {  
+            "text": "The food is good",  
+            "percentage": 20,  
+            "sentiment": 0
+        },
+        {  
+            "text": "The food is good",  
+            "percentage": 25,  
+            "sentiment": 0
+        }
+    ]
+}

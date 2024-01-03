@@ -65,28 +65,25 @@
         </ng-template>
     </p-table>
 </div>
-
+<div class="card" *ngIf="skeletonTable">
+    <p-table [value]="students" [tableStyle]="{ 'min-width': '81rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Actions</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-student>
+            <tr>
+                <td style="width: 24rem"><p-skeleton></p-skeleton></td>
+                <td style="width: 24rem"><p-skeleton></p-skeleton></td>
+                <td style="width: 24rem"><p-skeleton></p-skeleton></td>
+            </tr>
+        </ng-template>
+    </p-table>
 </div>
 
-<div class="container">
-    <div class="card" *ngIf="skeletonTable">
-        <p-table [value]="students" [tableStyle]="{ 'min-width': '81rem' }">
-            <ng-template pTemplate="header">
-                <tr>
-                    <th>Last Name</th>
-                    <th>First Name</th>
-                    <th>Actions</th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-student>
-                <tr>
-                    <td style="width: 24rem"><p-skeleton></p-skeleton></td>
-                    <td style="width: 24rem"><p-skeleton></p-skeleton></td>
-                    <td style="width: 24rem"><p-skeleton></p-skeleton></td>
-                </tr>
-            </ng-template>
-        </p-table>
-    </div>
 </div>
 
 <p-dialog [(visible)]="studentDialog" [style]="{width: '450px'}" header="Student Details" [modal]="true" styleClass="p-fluid">
